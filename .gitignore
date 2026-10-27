@@ -6,6 +6,9 @@ photos/*.JPG
 photos/*.jpg
 photos/*.jpeg
 
+# Local design-tool config
+.impeccable/
+
 # OS and sync noise
 Thumbs.db
 desktop.ini

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Photography — Jio Miguel Ong</title>
 <meta name="description" content="A gallery of animal and wildlife photography by Jio Miguel Ong, taken across London and beyond.">
-<meta name="theme-color" content="#0D0B0A">
+<meta name="theme-color" content="#FBFBFA">
 <meta property="og:title" content="Photography — Jio Miguel Ong">
 <meta property="og:description" content="Wildlife photography shot on a Nikon Z50, taken across London and beyond.">
 <meta property="og:image" content="https://jiomiguelong.uk/og-image.png">
@@ -66,18 +66,19 @@
     position: absolute;
     width: 48px; height: 48px; border-radius: 50%;
     background: rgba(240,235,227,.08); border: 1px solid rgba(240,235,227,.16);
-    color: var(--ink);
+    color: #F0EBE3;
     display: flex; align-items: center; justify-content: center;
     transition: background-color .18s, color .18s;
   }
   .lb-btn svg { width: 18px; height: 18px; }
-  .lb-btn:hover { background: var(--amber); color: var(--bg); }
+  .lb-btn:hover { background: var(--amber); color: #0D0B0A; }
+  .lightbox :focus-visible { outline-color: var(--amber); }
   .lb-close { top: 20px; right: 20px; }
   .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
   .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
   .lb-count {
     position: absolute; left: 24px; top: 32px;
-    font-size: var(--t-sm); font-weight: 600; color: var(--muted);
+    font-size: var(--t-sm); font-weight: 600; color: rgba(240,235,227,.8);
     font-variant-numeric: tabular-nums;
   }
 
@@ -156,7 +157,7 @@
   <span class="lb-count" id="lbCount" aria-live="polite"></span>
   <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l10 10M15 5 5 15"/></svg></button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l-6 6 6 6"/></svg></button>
-  <img id="lbImg" src="" alt="">
+  <img id="lbImg" alt="">
   <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l6 6-6 6"/></svg></button>
 </div>
 
