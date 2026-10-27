@@ -56,8 +56,10 @@
   }
   .hv { display: block; overflow: hidden; border-radius: var(--radius-panel); background: var(--panel); }
   .hv img { width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
-  .hv-main { grid-row: 1 / span 2; }
-  .hv-main img { aspect-ratio: auto; }
+  .hv-main { grid-row: 1 / span 2; position: relative; aspect-ratio: 3 / 2; }
+  .hv-main img { position: absolute; inset: 0; aspect-ratio: auto; }
+  .hv-pick { padding: 0; text-align: left; width: 100%; }
+  .hv-pick img { transition: transform .5s cubic-bezier(.2,.7,.2,1), opacity .3s ease-out; }
   .hv:hover img, .hv:focus-visible img { transform: scale(1.03); }
   .hv-cap { grid-column: 1 / -1; margin-top: 8px; font-size: var(--t-sm); color: var(--muted); }
   .hv-cap a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color .18s; }
@@ -120,6 +122,41 @@
   .contact-more a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color .18s; }
   .contact-more a:hover { border-color: var(--ink); }
 
+  /* ── MOTION AND INTERACTION ── */
+  /* The highlight draws itself in, like a marker pen */
+  .hero-lede .hi {
+    background: linear-gradient(var(--amber-soft), var(--amber-soft)) left center / 0% 100% no-repeat;
+    animation: mark .6s .5s cubic-bezier(.2,.7,.2,1) forwards;
+  }
+  @keyframes mark { to { background-size: 100% 100%; } }
+  /* Lists stagger in as they arrive; without JavaScript they are simply visible */
+  .rev { opacity: 0; transform: translateY(10px); }
+  .rev.in { opacity: 1; transform: none; transition: opacity .55s cubic-bezier(.2,.7,.2,1), transform .55s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0ms); }
+  .ledger-title a::after { content: " \2192"; display: inline-block; margin-left: .2em; transition: transform .2s cubic-bezier(.2,.7,.2,1); }
+  .ledger-row:hover .ledger-title a::after { transform: translateX(4px); }
+  .how-more { margin-top: 10px; }
+  .how-more summary {
+    display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+    font-size: var(--t-sm); font-weight: 600; color: var(--amber-ink);
+    padding: 6px 12px 6px 10px; margin-left: -10px; border-radius: var(--radius-pill);
+    transition: background-color .18s;
+  }
+  .how-more summary::-webkit-details-marker { display: none; }
+  .how-more summary:hover { background: var(--amber-soft); }
+  .how-more summary::before {
+    content: ''; width: 6px; height: 6px; margin-left: 2px;
+    border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg); transition: transform .2s;
+  }
+  .how-more[open] summary::before { transform: rotate(45deg); }
+  .how-more p { margin-top: 8px; font-size: var(--t-sm); animation: fadein .35s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  .copy-email.is-copied { background: #0D0B0A; color: var(--amber); border-color: #0D0B0A; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-lede .hi { background-size: 100% 100%; animation: none; }
+    .rev { opacity: 1; transform: none; }
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 1000px) {
     .ledger-row { grid-template-columns: 90px minmax(0, 1fr); row-gap: 10px; }
@@ -133,7 +170,6 @@
     .hero-cta { margin-bottom: 40px; }
     .hero-visual { grid-template-columns: 1fr 1fr; gap: 8px; }
     .hv-main { grid-column: 1 / -1; grid-row: auto; }
-    .hv-main img { aspect-ratio: 3 / 2; }
     .section { padding: 64px 0; }
     .how-grid { grid-template-columns: 1fr; gap: 28px; }
     .contact { padding-block: 72px 80px; }
@@ -174,10 +210,10 @@
       <a href="#contact" class="btn btn-amber">Get in touch</a>
     </div>
     <figure class="hero-visual">
-      <a href="/photography" class="hv hv-main"><img src="photos/web/dsc_0597.jpg" alt="Greylag goose" width="1800" height="1200" fetchpriority="high"></a>
-      <a href="/photography" class="hv"><img src="photos/thumbs/dsc_0633.jpg" alt="Mirror reflection of a Nikon Z50 held in both hands" width="900" height="600"></a>
-      <a href="/photography" class="hv"><img src="photos/thumbs/dsc_1262.jpg" alt="Blue-grey pigeon with a red eye, half-hidden among large leaves" width="900" height="600"></a>
-      <figcaption class="hv-cap">Through the lens: wildlife shot on a Nikon Z50 across London and beyond. <a href="/photography">See the gallery</a></figcaption>
+      <a href="/photography" class="hv hv-main" data-file="dsc_0597.jpg"><img src="photos/web/dsc_0597.jpg" alt="Greylag goose" width="1800" height="1200" fetchpriority="high"></a>
+      <button type="button" class="hv hv-pick" data-file="dsc_0633.jpg" data-alt="Mirror reflection of a Nikon Z50 held in both hands" aria-label="Show large: Mirror reflection of a Nikon Z50 held in both hands"><img src="photos/thumbs/dsc_0633.jpg" alt="" width="900" height="600"></button>
+      <button type="button" class="hv hv-pick" data-file="dsc_1262.jpg" data-alt="Blue-grey pigeon with a red eye, half-hidden among large leaves" aria-label="Show large: Blue-grey pigeon with a red eye, half-hidden among large leaves"><img src="photos/thumbs/dsc_1262.jpg" alt="" width="900" height="600"></button>
+      <figcaption class="hv-cap">Through the lens: wildlife shot on a Nikon Z50 across London and beyond. Tap a small photo to see it large, or <a href="/photography">see the gallery</a>.</figcaption>
     </figure>
   </section>
 
@@ -273,18 +309,22 @@
         <div class="how">
           <h3>Write it down before building it</h3>
           <p>Every story I hand over carries a user story, Given/When/Then acceptance criteria, what is out of scope, and the teams it depends on. Big pieces get split into sub-tasks the developers can actually estimate.</p>
+          <details class="how-more"><summary>In practice</summary><p>200+ Jira tickets in my first two months at Car Planet UK, each written this way, with the large pieces broken into sub-tasks the team could estimate.</p></details>
         </div>
         <div class="how">
           <h3>Verify before describing</h3>
           <p>Before a ticket says what the product does today, I check the product's own data. Guessing at current behaviour is how bugs get written into requirements.</p>
+          <details class="how-more"><summary>In practice</summary><p>At CIRQL I read the app's Flutter, Dart and Firebase code with AI assistance before scoping features, which took about a working day out of each scoping round and let me argue feasibility from the code rather than from assumptions.</p></details>
         </div>
         <div class="how">
           <h3>Design first, then build</h3>
           <p>A redesign starts as a canvas the team can review, and the decisions get captured as a shared design language, so the next module is consistent with the last without anyone re-deciding.</p>
+          <details class="how-more"><summary>In practice</summary><p>At Car Planet UK the module redesigns went to review as design canvases before any build, and delivery was re-sequenced design-first after that review.</p></details>
         </div>
         <div class="how">
           <h3>AI for speed, people for judgement</h3>
           <p>I use AI to compress research, drafting and code reading, and keep a human check on everything it touches: manual verification on the dissertation, review for audience fit on campaign material, and legal and data-protection sign-off before any customer data is used.</p>
+          <details class="how-more"><summary>In practice</summary><p>Dissertation research moved about 40 per cent faster with manual verification throughout. Citizens UK campaign materials came together about 25 per cent faster, with every piece reviewed for audience fit. A call-deflection pilot for an AI assistant was scoped with legal and data-protection review before a single transcript was used.</p></details>
         </div>
       </div>
     </div>
@@ -298,6 +338,7 @@
       </div>
       <div class="contact-actions">
         <a href="mailto:jiomiguelong@outlook.com" class="btn btn-amber">Email jiomiguelong@outlook.com</a>
+        <button type="button" class="btn btn-ghost copy-email" data-email="jiomiguelong@outlook.com" aria-live="polite">Copy the address</button>
         <a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
         <p class="contact-more">Or read the <a href="/experience">full role history</a> and find <a href="/socials">all my channels</a>.</p>
       </div>
@@ -315,6 +356,88 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Hero photos: tap a small one to make it the big one. They also take turns on their own until someone interacts. */
+  var main = document.querySelector('.hv-main');
+  var picks = [].slice.call(document.querySelectorAll('.hv-pick'));
+  if (main && picks.length) {
+    var current = { file: main.dataset.file, alt: main.querySelector('img').alt };
+    var slots = picks.map(function (b) { return { file: b.dataset.file, alt: b.dataset.alt }; });
+    var touched = false, timer, turn = 0;
+
+    function setMain(p) {
+      var old = main.querySelector('img');
+      var img = document.createElement('img');
+      img.alt = p.alt; img.width = 1800; img.height = 1200;
+      img.style.opacity = '0';
+      img.addEventListener('load', function () {
+        if (!reduce) img.style.transition = 'opacity .5s ease-out';
+        void img.offsetWidth; /* commit the opacity-0 start so the transition runs even in a background tab */
+        img.style.opacity = '1';
+        setTimeout(function () { if (old.parentNode) old.remove(); }, reduce ? 0 : 520);
+      });
+      img.src = 'photos/web/' + p.file;
+      main.appendChild(img);
+      main.dataset.file = p.file;
+    }
+    function setPick(i, p) {
+      var b = picks[i], img = b.querySelector('img');
+      b.dataset.file = p.file; b.dataset.alt = p.alt;
+      b.setAttribute('aria-label', 'Show large: ' + p.alt);
+      img.style.opacity = '0';
+      var next = new Image();
+      next.onload = function () { img.src = next.src; img.style.opacity = '1'; };
+      next.src = 'photos/thumbs/' + p.file;
+    }
+    function promote(i) {
+      var was = current; current = slots[i]; slots[i] = was;
+      setMain(current); setPick(i, was);
+    }
+    picks.forEach(function (b, i) {
+      b.addEventListener('click', function () { touched = true; clearInterval(timer); promote(i); });
+    });
+    if (!reduce) {
+      timer = setInterval(function () {
+        if (touched || document.hidden || document.querySelector('.hero-visual:hover, .hero-visual:focus-within')) return;
+        promote(turn % picks.length); turn++;
+      }, 7000);
+    }
+  }
+
+  /* Stagger the two lists in as they arrive. Only rows below the fold are ever hidden, so nothing visible is gated on this. */
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    [document.querySelectorAll('.ledger-row'), document.querySelectorAll('.how')].forEach(function (list) {
+      [].forEach.call(list, function (el, i) {
+        if (el.getBoundingClientRect().top > window.innerHeight) {
+          el.style.setProperty('--d', (i * 70) + 'ms'); el.classList.add('rev'); io.observe(el);
+        }
+      });
+    });
+  }
+
+  /* Copy the email address, and say so */
+  var copy = document.querySelector('.copy-email');
+  if (copy) {
+    if (!navigator.clipboard) { copy.hidden = true; return; }
+    var label = copy.textContent;
+    function say(text, ok) {
+      copy.textContent = text; copy.classList.toggle('is-copied', ok);
+      setTimeout(function () { copy.textContent = label; copy.classList.remove('is-copied'); }, 1800);
+    }
+    copy.addEventListener('click', function () {
+      navigator.clipboard.writeText(copy.dataset.email)
+        .then(function () { say('Copied', true); })
+        .catch(function () { say('Could not copy', false); });
+    });
+  }
+})();
+</script>
 <script src="shared.js" defer></script>
 </body>
 </html>
