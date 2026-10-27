@@ -1,0 +1,12 @@
+# Private documents, drafts and local tooling: never publish
+_not-for-repo/
+
+# Camera originals (the site only uses photos/web and photos/thumbs)
+photos/*.JPG
+photos/*.jpg
+photos/*.jpeg
+
+# OS and sync noise
+Thumbs.db
+desktop.ini
+.DS_Store
