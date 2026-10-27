@@ -37,8 +37,7 @@ and no frameworks.
 ├── CNAME
 ├── assets/
 │   ├── favicon.svg
-│   ├── apple-touch-icon.png
-│   └── Jio-Miguel-Ong-CV.pdf
+│   └── apple-touch-icon.png
 └── photos/
     ├── web/      # full-size images shown in the gallery lightbox
     └── thumbs/   # thumbnails shown in the gallery grid
