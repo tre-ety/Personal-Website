@@ -4,156 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jio Miguel Ong</title>
-<meta name="description" content="Personal site of Jio Miguel Ong: strategy and product management associate, Politics graduate of Queen Mary University of London, strategic communications professional, community organiser and open-source investigator based in London.">
+<meta name="description" content="Personal site of Jio Miguel Ong: Product Owner at Car Planet UK, Politics graduate of Queen Mary University of London, strategic communications professional, community organiser and open-source investigator based in London.">
 <meta name="theme-color" content="#0D0B0A">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Jio Miguel Ong">
 <meta property="og:url" content="https://jiomiguelong.uk/">
-<meta property="og:title" content="Jio Miguel Ong — Strategy, Product &amp; Communications">
-<meta property="og:description" content="Strategy and product management associate and Politics graduate of QMUL. Research into roadmaps, campaigns that hold power to account.">
+<meta property="og:title" content="Jio Miguel Ong — Product, Strategy &amp; Communications">
+<meta property="og:description" content="Product Owner at Car Planet UK and Politics graduate of QMUL. Research into roadmaps, campaigns that hold power to account.">
 <meta property="og:image" content="https://jiomiguelong.uk/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Jio Miguel Ong — Strategy, Product &amp; Communications">
+<meta name="twitter:title" content="Jio Miguel Ong — Product, Strategy &amp; Communications">
 <meta name="twitter:image" content="https://jiomiguelong.uk/og-image.png">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://jiomiguelong.uk/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
   /* ── HERO ── */
-  .hero {
-    min-height: 94vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 56px 80px;
-    max-width: 1200px; margin: 0 auto; width: 100%;
+  .hero { padding-block: calc(var(--nav-h) + 96px) 88px; }
+  .nameplate {
+    font-size: clamp(44px, 8.5vw, 96px);
+    max-width: 14ch;
+    margin: 0 0 28px -0.03em;
   }
-  .hero h1 {
-    font-family: 'Bitter', Georgia, serif;
-    font-size: clamp(72px, 9.5vw, 132px);
-    font-weight: 800; line-height: .9;
-    letter-spacing: -.035em; color: var(--ink);
-    margin-bottom: 32px;
+  .hero-lede {
+    font-size: clamp(20px, 2.3vw, 30px);
+    font-weight: 600; line-height: 1.25; letter-spacing: -.015em;
+    max-width: 30ch; margin-bottom: 22px;
+    text-wrap: balance;
   }
-  .hero-bio {
-    font-size: clamp(16px, 1.25vw, 18px);
-    line-height: 1.7; color: var(--muted);
-    max-width: 520px; margin-bottom: 38px;
-  }
-  .hero-cta { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
-  .cta-line {
-    font-size: 14px; font-weight: 600; color: var(--ink);
-    border-bottom: 1px solid var(--dim); padding-bottom: 3px;
-    transition: border-color .2s;
-  }
-  .cta-line:hover { border-color: var(--ink); }
-  .cta-amber { font-size: 14px; font-weight: 600; color: var(--amber); }
-  .cta-amber:hover { opacity: .75; }
+  .hero-lede .amber { color: var(--amber); }
+  .hero-bio { font-size: var(--t-lg); line-height: 1.55; color: var(--ink-2); max-width: 54ch; margin-bottom: 34px; }
+  .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  /* One orchestrated entrance */
+  .hero > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero > :nth-child(2) { animation-delay: .1s; }
+  .hero > :nth-child(3) { animation-delay: .18s; }
+  .hero > :nth-child(4) { animation-delay: .26s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  /* ── SECTIONS ── */
+  .section { padding: 88px 0; border-top: 1px solid var(--line); }
+  .section-title { font-size: var(--t-2xl); margin-bottom: 36px; }
 
   /* ── ABOUT ── */
-  .about-section { padding: 80px 56px; max-width: 1200px; margin: 0 auto; width: 100%; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-  .about-prose p { font-size: 17px; line-height: 1.72; color: var(--muted); margin-bottom: 20px; }
+  .about-prose { max-width: 62ch; }
+  .about-prose p { font-size: var(--t-md); line-height: 1.7; color: var(--ink-2); margin-bottom: 22px; }
   .about-prose p:last-child { margin-bottom: 0; }
   .about-prose strong { color: var(--ink); font-weight: 600; }
-  .about-aside {
-    position: sticky; top: 80px;
-    padding-top: 24px; border-top: 1px solid var(--border-mid);
-  }
-  .aside-title {
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .14em;
-    color: var(--amber); margin-bottom: 20px;
-  }
-  .aside-dl {
-    display: grid; grid-template-columns: auto 1fr;
-    gap: 12px 24px; font-size: 13px; margin-bottom: 24px;
-  }
-  .aside-dl dt {
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .1em;
-    color: var(--dim); align-self: center;
-  }
-  .aside-dl dd { font-weight: 500; color: var(--ink); }
-  .skill-pills {
-    display: flex; flex-wrap: wrap; gap: 8px;
-    padding-top: 20px; border-top: 1px solid var(--border);
-  }
+  .glance { display: grid; gap: 14px; margin-bottom: 24px; }
+  .glance dt { font-size: var(--t-xs); color: var(--dim); margin-bottom: 2px; }
+  .glance dd { font-size: var(--t-sm); font-weight: 500; color: var(--ink); line-height: 1.35; }
+  .glance-tags { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 20px; border-top: 1px solid var(--line); }
 
-  /* ── WORK ── */
-  .work-section { padding: 80px 56px; max-width: 1200px; margin: 0 auto; width: 100%; }
-  .work-item {
-    border-top: 1px solid var(--border);
-    padding: 22px 0;
-    display: flex; gap: 22px; align-items: flex-start;
+  /* ── WORK (ledger) ── */
+  .ledger { border-top: 1px solid var(--line-2); }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr) 170px 200px;
+    gap: 24px; align-items: start;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .work-item:last-child { border-bottom: 1px solid var(--border); }
-  .work-num {
-    font-size: 11px; font-weight: 700; color: var(--dim);
-    font-variant-numeric: tabular-nums; min-width: 22px; padding-top: 4px;
-  }
-  .work-main { flex: 1; }
-  .work-title {
-    font-family: 'Bitter', Georgia, serif;
-    font-size: 19px; font-weight: 700; line-height: 1.2;
-    color: var(--ink); margin-bottom: 5px;
-  }
-  .work-org { font-size: 12px; color: var(--muted); }
-  .work-right { text-align: right; flex-shrink: 0; min-width: 150px; }
-  .work-tag {
-    display: block; font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .08em; margin-bottom: 3px;
-  }
-  .tag-amber { color: var(--amber); }
-  .tag-plum  { color: var(--plum); }
-  .tag-teal  { color: var(--teal); }
-  .work-outcome { font-size: 12px; color: var(--muted); }
+  .ledger-row:hover { background: rgba(240,235,227,.05); }
+  .ledger-when { font-size: var(--t-sm); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+  .ledger-title { font-size: var(--t-lg); font-weight: 700; letter-spacing: -.015em; line-height: 1.2; }
+  .ledger-org { font-size: var(--t-sm); color: var(--muted); margin-top: 4px; }
+  .ledger-tag { padding-top: 5px; }
+  .ledger-outcome { font-size: var(--t-sm); font-weight: 600; color: var(--ink); padding-top: 3px; }
+  .ledger-outcome small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-xs); margin-top: 2px; }
+
+  /* ── LENS (photography teaser) ── */
+  .lens-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .lens-head .section-title { margin-bottom: 0; }
+  .lens-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .lens-grid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 6px; background: var(--panel); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .lens-grid:hover img, .lens-grid:focus-visible img { transform: scale(1.02); }
+  .lens-note { margin-top: 18px; font-size: var(--t-sm); color: var(--muted); }
 
   /* ── CONTACT ── */
-  .contact-section { padding: 80px 56px 100px; max-width: 1200px; margin: 0 auto; width: 100%; }
-  .contact-heading {
-    font-family: 'Bitter', Georgia, serif;
-    font-size: clamp(38px, 4.5vw, 68px);
-    font-weight: 800; line-height: 1.0;
-    letter-spacing: -.03em; margin-bottom: 14px;
-  }
-  .contact-sub { font-size: 16px; color: var(--muted); max-width: 480px; margin-bottom: 48px; line-height: 1.65; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .contact-card {
-    display: flex; flex-direction: column; justify-content: space-between;
-    background: var(--surface); border: 1px solid var(--border-mid);
-    border-radius: 10px; padding: 24px 26px; min-height: 126px;
-    transition: background .22s, border-color .22s, transform .22s;
-  }
-  .contact-card:hover {
-    background: var(--surface-hov);
-    border-color: rgba(237,177,131,.32);
-    transform: translateY(-2px);
-  }
-  .contact-ch {
-    font-size: 10px; font-weight: 700;
-    text-transform: uppercase; letter-spacing: .12em;
-    color: var(--amber); margin-bottom: 7px;
-  }
-  .contact-handle {
-    font-family: 'Bitter', Georgia, serif;
-    font-size: 18px; font-weight: 600; line-height: 1.2;
-    word-break: break-word;
-  }
-  .contact-arrow { margin-top: 14px; font-size: 18px; color: var(--amber); transition: transform .2s; display: block; }
-  .contact-card:hover .contact-arrow { transform: translateX(4px); }
+  .contact { padding-block: 96px 112px; }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: end; }
+  .contact h2 { font-size: var(--t-3xl); margin-bottom: 18px; max-width: 12ch; }
+  .contact-sub { font-size: var(--t-md); color: var(--ink-2); max-width: 46ch; line-height: 1.6; }
+  .contact-actions { display: grid; gap: 10px; min-width: 300px; }
+  .contact-more { margin-top: 8px; font-size: var(--t-sm); color: var(--muted); line-height: 1.6; }
+  .contact-more a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color .18s; }
+  .contact-more a:hover { border-color: var(--ink); }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero { padding: 110px 22px 64px; }
-    .about-section, .work-section, .contact-section { padding-left: 22px; padding-right: 22px; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .about-aside { position: static; }
-    .work-item { flex-wrap: wrap; }
-    .work-right { text-align: left; min-width: 0; }
+  @media (max-width: 1000px) {
+    .ledger-row { grid-template-columns: 90px minmax(0, 1fr); row-gap: 10px; }
+    .ledger-tag, .ledger-outcome { grid-column: 2; padding-top: 0; }
     .contact-grid { grid-template-columns: 1fr; }
+    .contact-actions { min-width: 0; max-width: 420px; }
+  }
+  @media (max-width: 820px) {
+    .hero { padding-block: calc(var(--nav-h) + 64px) 56px; }
+    .nameplate { font-size: clamp(44px, 12vw, 72px); }
+    .section { padding: 64px 0; }
+    .contact { padding-block: 72px 80px; }
+    .lens-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .ledger-row { grid-template-columns: 1fr; row-gap: 6px; padding: 20px 0; }
+    .ledger-tag, .ledger-outcome { grid-column: 1; }
+    .ledger-tag { margin-top: 6px; }
   }
 </style>
 </head>
@@ -162,173 +120,159 @@
 
 <nav class="nav" aria-label="Main">
   <a href="/" class="nav-brand">Jio Miguel Ong</a>
-  <ul>
+  <ul class="nav-menu" id="nav-menu">
     <li><a href="/" class="nav-link" aria-current="page">About</a></li>
     <li><a href="/experience" class="nav-link">Experience</a></li>
     <li><a href="/education" class="nav-link">Education</a></li>
     <li><a href="/photography" class="nav-link">Photography</a></li>
     <li><a href="/socials" class="nav-link">Socials</a></li>
   </ul>
-  <a href="/assets/Jio-Miguel-Ong-CV.pdf" download class="nav-cv">CV ↓</a>
+  <div class="nav-end">
+    <a href="/assets/Jio-Miguel-Ong-CV.pdf" download class="nav-cv" aria-label="Download CV"><span>Download CV</span><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v9m0 0 3.5-3.5M8 11 4.5 7.5M2.5 13.5h11"/></svg></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
+      <svg class="ico-open" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+      <svg class="ico-close" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 5l10 10M15 5 5 15"/></svg>
+    </button>
+  </div>
 </nav>
 
 <main id="main">
 
-  <section class="hero" aria-label="Introduction">
-    <p class="eyebrow">Strategy · Product · London</p>
-    <h1>Jio Miguel<br>Ong.</h1>
-    <p class="hero-bio">Strategy and product management associate, Politics graduate of Queen Mary University of London. I turn research into roadmaps and analysis into measurable outcomes, working across product, strategic communications, policy and open-source investigation.</p>
+  <section class="hero shell" aria-label="Introduction">
+    <h1 class="display nameplate">Jio Miguel Ong</h1>
+    <p class="hero-lede"><span class="amber">Product Owner at Car Planet UK.</span> Politics graduate, community organiser and communications officer. From Cebu, based in London.</p>
+    <p class="hero-bio">I turn research into roadmaps and analysis into measurable outcomes, working across product, strategic communications, policy and open-source investigation.</p>
     <div class="hero-cta">
-      <a href="#work" class="cta-line">Selected work →</a>
-      <a href="#contact" class="cta-amber">Get in touch</a>
+      <a href="#work" class="btn btn-ghost">Selected work</a>
+      <a href="#contact" class="btn btn-amber">Get in touch</a>
     </div>
   </section>
 
-  <hr class="rule">
-
-  <section id="about" class="about-section" aria-label="About">
-    <div class="section-label">
-      <span class="section-label-text">About</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-prose">
-        <p>I work at the meeting point of strategy, product and politics. As a <strong>Strategy and Product Management Associate at CIRQL</strong>, I conduct competitor and market-positioning analysis using AI tooling, synthesise user feedback into prioritised design and development programmes, and drive growth at the coalface.</p>
-        <p>That product instinct grew out of a political education. I am a <strong>Politics graduate of Queen Mary University of London</strong>, on track for a First Class degree, with a dissertation on how disinformation, voter predispositions and contested historical memory shaped the 2022 Philippine presidential election.</p>
-        <p>Alongside this I organise in East London with <strong>Citizens UK</strong>, serve as <strong>Regional Communications, Media and PR Officer</strong> for St John Ambulance, and have worked for the better part of a decade as a freelance <strong>open-source investigator</strong>. I research, build, write, film and organise.</p>
-      </div>
-      <aside class="about-aside">
-        <div class="aside-title">At a glance</div>
-        <dl class="aside-dl">
-          <dt>Name</dt><dd>Jio Miguel Ong</dd>
-          <dt>Role</dt><dd>Strategy &amp; product management associate</dd>
-          <dt>Based</dt><dd>London, United Kingdom</dd>
-          <dt>From</dt><dd>Cebu, Philippines</dd>
-          <dt>Studies</dt><dd>BA (Hons) Politics, QMUL</dd>
-          <dt>Languages</dt><dd>EN / TL / CEB / ES</dd>
+  <section id="about" class="section" aria-label="About">
+    <div class="shell rail-layout" style="padding-bottom:0">
+      <aside class="rail">
+        <dl class="glance">
+          <div><dt>Name</dt><dd>Jio Miguel Ong</dd></div>
+          <div><dt>Role</dt><dd>Product Owner, Car Planet UK</dd></div>
+          <div><dt>Based</dt><dd>London, United Kingdom</dd></div>
+          <div><dt>From</dt><dd>Cebu, Philippines</dd></div>
+          <div><dt>Studies</dt><dd>BA (Hons) Politics, QMUL</dd></div>
+          <div><dt>Languages</dt><dd>English, Tagalog, Cebuano, Spanish</dd></div>
         </dl>
-        <div class="skill-pills">
-          <span class="pill pill-amber">Strategy</span>
-          <span class="pill pill-ghost">Product</span>
-          <span class="pill pill-plum">Comms</span>
-          <span class="pill pill-teal">Organising</span>
-          <span class="pill pill-ghost">OSINT</span>
+        <div class="glance-tags">
+          <span class="chip chip-amber">Strategy</span>
+          <span class="chip chip-amber">Product</span>
+          <span class="chip chip-teal">Comms</span>
+          <span class="chip chip-plum">Organising</span>
+          <span class="chip">OSINT</span>
         </div>
       </aside>
-    </div>
-  </section>
-
-  <hr class="rule">
-
-  <section id="work" class="work-section" aria-label="Selected work">
-    <div class="section-label">
-      <span class="section-label-text">Selected Work</span>
-      <div class="section-label-line"></div>
-    </div>
-    <div class="work-item">
-      <span class="work-num">01</span>
-      <div class="work-main">
-        <div class="work-title">Driving growth at CIRQL, from research to roadmap</div>
-        <div class="work-org">Strategy &amp; Product Management Associate · CIRQL · Apr 2026 – Present</div>
-      </div>
-      <div class="work-right">
-        <span class="work-tag tag-amber">Strategy</span>
-        <div class="work-outcome">20% community growth</div>
-      </div>
-    </div>
-    <div class="work-item">
-      <span class="work-num">02</span>
-      <div class="work-main">
-        <div class="work-title">V&amp;A Living Wage campaign taken to City Hall</div>
-        <div class="work-org">Civil Society Organising Intern · Citizens UK · TELCO · 2026</div>
-      </div>
-      <div class="work-right">
-        <span class="work-tag tag-plum">Policy</span>
-        <div class="work-outcome">Mayor of London</div>
-      </div>
-    </div>
-    <div class="work-item">
-      <span class="work-num">03</span>
-      <div class="work-main">
-        <div class="work-title">Earning media for first aid and volunteer recruitment</div>
-        <div class="work-org">Regional Comms &amp; PR Officer · St John Ambulance · 2025 – Present</div>
-      </div>
-      <div class="work-right">
-        <span class="work-tag tag-teal">Comms</span>
-        <div class="work-outcome">National coverage secured</div>
-      </div>
-    </div>
-    <div class="work-item">
-      <span class="work-num">04</span>
-      <div class="work-main">
-        <div class="work-title">Coal market intelligence for an Indian infrastructure firm</div>
-        <div class="work-org">Strategy Associate · Varaha Infra Limited · Jul 2025 – Jun 2026</div>
-      </div>
-      <div class="work-right">
-        <span class="work-tag tag-amber">Strategy</span>
-        <div class="work-outcome">Executive reporting</div>
+      <div>
+        <h2 class="section-title">About</h2>
+        <div class="about-prose">
+          <p>I work at the meeting point of product, strategy and politics. As <strong>Product Owner at Car Planet UK</strong>, I own the backlog, roadmap and release testing for a portfolio of in-house web, mobile and AI products used daily across the business, prioritising requests from sales, operations, finance and HR into one roadmap for a single development team. Before that I was a <strong>Product Management and Strategy Associate at CIRQL</strong>, turning competitor analysis and user feedback into roadmap decisions and driving growth at the coalface.</p>
+          <p>That product instinct grew out of a political education. I am a <strong>Politics graduate of Queen Mary University of London</strong>, with Upper Second Class Honours and a dissertation on how disinformation, voter predispositions and contested historical memory shaped the 2022 Philippine presidential election.</p>
+          <p>Alongside this I serve as <strong>Regional Communications, Media and PR Officer</strong> for St John Ambulance, have organised in East London with <strong>Citizens UK</strong>, and spent four years as a freelance <strong>open-source investigator</strong>. I research, build, write, film and organise.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <hr class="rule">
+  <section id="work" class="section plate-teal" aria-label="Selected work">
+    <div class="shell">
+      <h2 class="section-title">Selected work</h2>
+      <div class="ledger">
+        <article class="ledger-row">
+          <div class="ledger-when">2026 – now</div>
+          <div>
+            <h3 class="ledger-title">One roadmap for a portfolio of in-house products</h3>
+            <p class="ledger-org">Product Owner, Car Planet UK</p>
+          </div>
+          <span class="tag tag-amber ledger-tag">Product</span>
+          <div class="ledger-outcome">200+ tickets in two months<small>across four departments</small></div>
+        </article>
+        <article class="ledger-row">
+          <div class="ledger-when">2026</div>
+          <div>
+            <h3 class="ledger-title">Driving growth at CIRQL, from research to roadmap</h3>
+            <p class="ledger-org">Product Management &amp; Strategy Associate, CIRQL</p>
+          </div>
+          <span class="tag tag-amber ledger-tag">Strategy</span>
+          <div class="ledger-outcome">20% community growth<small>during early launch</small></div>
+        </article>
+        <article class="ledger-row">
+          <div class="ledger-when">2026</div>
+          <div>
+            <h3 class="ledger-title">V&amp;A Living Wage campaign taken to City Hall</h3>
+            <p class="ledger-org">Civil Society Organising Intern, Citizens UK (TELCO)</p>
+          </div>
+          <span class="tag tag-plum ledger-tag">Policy</span>
+          <div class="ledger-outcome">Submission to the Mayor of London<small>accountability campaign</small></div>
+        </article>
+        <article class="ledger-row">
+          <div class="ledger-when">2025 – now</div>
+          <div>
+            <h3 class="ledger-title">Earning media for first aid and volunteer recruitment</h3>
+            <p class="ledger-org">Regional Comms &amp; PR Officer, St John Ambulance</p>
+          </div>
+          <span class="tag tag-teal ledger-tag">Comms</span>
+          <div class="ledger-outcome">National coverage secured<small>press and editorial</small></div>
+        </article>
+        <article class="ledger-row">
+          <div class="ledger-when">2025 – 2026</div>
+          <div>
+            <h3 class="ledger-title">Coal market intelligence for an Indian infrastructure firm</h3>
+            <p class="ledger-org">Strategy Associate, Varaha Infra Limited</p>
+          </div>
+          <span class="tag tag-amber ledger-tag">Strategy</span>
+          <div class="ledger-outcome">Executive reporting<small>decision-ready briefings</small></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <section id="contact" class="contact-section" aria-label="Contact">
-    <h2 class="contact-heading">Let's build<br>something.</h2>
-    <p class="contact-sub">Open to conversations about strategy and product, communications and campaigns. The fastest way to reach me is email or LinkedIn.</p>
-    <div class="contact-grid">
-      <a href="mailto:jiomiguelong@outlook.com" class="contact-card">
-        <div>
-          <div class="contact-ch">Email</div>
-          <div class="contact-handle">jiomiguelong@outlook.com</div>
-        </div>
-        <span class="contact-arrow">→</span>
+  <section id="lens" class="section" aria-label="Photography">
+    <div class="shell">
+      <div class="lens-head">
+        <h2 class="section-title">Through the lens</h2>
+        <a href="/photography" class="btn btn-ghost">See the gallery</a>
+      </div>
+      <a href="/photography" class="lens-grid" aria-label="Open the photography gallery">
+        <img src="photos/thumbs/dsc_1286.jpg" alt="Trogon" width="900" height="600" loading="lazy">
+        <img src="photos/thumbs/dsc_1004.jpg" alt="Giraffe" width="900" height="600" loading="lazy">
+        <img src="photos/thumbs/dsc_0736.jpg" alt="Pair of mallards among bluebells beside a lake" width="900" height="600" loading="lazy">
+        <img src="photos/thumbs/dsc_1234.jpg" alt="Squirrel monkey" width="900" height="600" loading="lazy">
       </a>
-      <a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener" class="contact-card">
-        <div>
-          <div class="contact-ch">LinkedIn</div>
-          <div class="contact-handle">in/jiomiguelong</div>
-        </div>
-        <span class="contact-arrow">→</span>
-      </a>
-      <a href="/experience" class="contact-card">
-        <div>
-          <div class="contact-ch">Experience</div>
-          <div class="contact-handle">Full role history</div>
-        </div>
-        <span class="contact-arrow">→</span>
-      </a>
-      <a href="/socials" class="contact-card">
-        <div>
-          <div class="contact-ch">Elsewhere</div>
-          <div class="contact-handle">All my channels</div>
-        </div>
-        <span class="contact-arrow">→</span>
-      </a>
+      <p class="lens-note">Wildlife, and the occasional flower, shot on a Nikon Z50 across London and beyond.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact plate-amber" aria-label="Contact">
+    <div class="shell contact-grid">
+      <div>
+        <h2 class="display">Let's build something.</h2>
+        <p class="contact-sub">Open to conversations about product and strategy, communications and campaigns. The fastest way to reach me is email or LinkedIn.</p>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:jiomiguelong@outlook.com" class="btn btn-amber">Email jiomiguelong@outlook.com</a>
+        <a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a>
+        <p class="contact-more">Or read the <a href="/experience">full role history</a> and find <a href="/socials">all my channels</a>.</p>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <span>© 2026 Jio Miguel Ong</span>
-  <span class="ft-amber">London</span>
+  <div class="shell foot">
+    <span>© 2026 Jio Miguel Ong, London</span>
+    <div class="foot-links">
+      <a href="/assets/Jio-Miguel-Ong-CV.pdf" download>Download CV</a>
+      <a href="#main">Back to top</a>
+    </div>
+  </div>
 </footer>
 
-<script>
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var s = document.createElement('style');
-  s.textContent = '.rev{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.rev.in{opacity:1;transform:none}';
-  document.head.appendChild(s);
-  var io = new IntersectionObserver(function (e) {
-    e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.work-item, .contact-card, .about-grid').forEach(function (el) {
-    el.classList.add('rev'); io.observe(el);
-  });
-})();
-</script>
+<script src="shared.js" defer></script>
 </body>
 </html>

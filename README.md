@@ -30,8 +30,10 @@ and no frameworks.
 ├── education.html
 ├── photography.html
 ├── socials.html
-├── shared.css          # shared tokens, nav, footer, reset
+├── shared.css          # shared tokens, nav, footer, rail, timeline, reset
+├── shared.js           # mobile menu and on-page rail highlighting
 ├── favicon.ico         # kept at root for the browser default fallback
+├── og-image.png        # link-preview image used by every page
 ├── CNAME
 ├── assets/
 │   ├── favicon.svg
@@ -46,19 +48,22 @@ and no frameworks.
 
 - HTML5 and modern CSS (Grid, Flexbox, custom properties)
 - Vanilla JavaScript for the gallery and lightbox
-- Google Fonts: Bitter and Archivo
+- Google Fonts: Bricolage Grotesque (variable: optical size, width, weight)
 - GitHub Pages for hosting, with a custom domain
 
 ## Running locally
 
-No build is required. Either open `index.html` directly in a browser, or serve the
-folder for clean-URL behaviour that matches production:
+No build is required, but the pages use root-relative paths (`/assets/…`) and
+extensionless links (`/experience`), so opening `index.html` straight from disk breaks
+navigation. Serve the folder with a server that maps `/experience` to
+`experience.html`, as GitHub Pages does. With Node.js installed:
 
 ```bash
-# Python 3
-python3 -m http.server 8000
-# then visit http://localhost:8000
+npx serve .
+# then visit http://localhost:3000
 ```
+
+A plain `python -m http.server` will load the pages but return 404 for every nav link.
 
 ## Deployment
 
@@ -73,8 +78,12 @@ configured in the repository settings under Pages.
 ## Photography
 
 The gallery reads its list of images from an array in `photography.html`. Web-optimised
-copies live in `photos/web` (full size) and `photos/thumbs` (grid). To add a photo,
-place the optimised files in those folders and add the filename to the array.
+copies live in `photos/web` (full size, about 1800×1200) and `photos/thumbs` (grid,
+900×600), under the same filename. To add a photo, place both files in those folders
+and add an entry with the filename and a short description (`alt`) to the array.
+
+Every sixth photo is shown as a large tile, so keep the total a multiple of three or
+the desktop grid ends with a gap.
 
 ## Licence
 

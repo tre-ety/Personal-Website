@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="JMO">
-  <rect width="48" height="48" rx="10" fill="#3A2E39"/>
-  <path d="M8 26 Q12 20, 16 24 Q18 26, 20 22" fill="none" stroke="#1E555C" stroke-width="4" stroke-linecap="round"/>
-  <path d="M20 22 Q24 30, 28 24 Q30 20, 32 24" fill="none" stroke="#EDB183" stroke-width="4" stroke-linecap="round"/>
-  <path d="M32 22 Q34 18, 37 22 Q39 26, 41 20" fill="none" stroke="#F15152" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="11" cy="18" r="1.5" fill="#F4D8CD"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Jio Miguel Ong">
+  <!-- A lowercase j whose dot is a lens ring: the j of Jio, the o of Ong, and the camera. -->
+  <rect width="64" height="64" rx="14" fill="#EDB183"/>
+  <circle cx="42" cy="16" r="6" fill="none" stroke="#0D0B0A" stroke-width="5"/>
+  <path d="M42 30V40A12 12 0 0 1 18 40V35" fill="none" stroke="#0D0B0A" stroke-width="10"/>
 </svg>
