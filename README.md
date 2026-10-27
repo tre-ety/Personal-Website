@@ -16,6 +16,7 @@ and no frameworks.
 | Page | File | Description |
 | --- | --- | --- |
 | Home | `index.html` | Introduction and short personal story |
+| Work | `work.html` | Five case studies: the brief, what I did, what came of it |
 | Experience | `experience.html` | Full professional history, each role detailed |
 | Education | `education.html` | Academic history with modules and subjects |
 | Photography | `photography.html` | Wildlife photography gallery with a lightbox |
@@ -26,6 +27,7 @@ and no frameworks.
 ```
 .
 ├── index.html
+├── work.html
 ├── experience.html
 ├── education.html
 ├── photography.html

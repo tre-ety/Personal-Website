@@ -89,6 +89,9 @@
   .ledger-row:hover { background: rgba(240,235,227,.05); }
   .ledger-when { font-size: var(--t-sm); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
   .ledger-title { font-size: var(--t-lg); font-weight: 700; letter-spacing: -.015em; line-height: 1.2; }
+  .ledger-title a { border-bottom: 1px solid transparent; transition: border-color .18s; }
+  .ledger-title a:hover { border-color: currentColor; }
+  .ledger-more { margin-top: 28px; }
   .ledger-org { font-size: var(--t-sm); color: var(--muted); margin-top: 4px; }
   .ledger-tag { padding-top: 5px; }
   .ledger-outcome { font-size: var(--t-sm); font-weight: 600; color: var(--ink); padding-top: 3px; }
@@ -133,6 +136,7 @@
   <a href="/" class="nav-brand">Jio Miguel Ong</a>
   <ul class="nav-menu" id="nav-menu">
     <li><a href="/" class="nav-link" aria-current="page">About</a></li>
+    <li><a href="/work" class="nav-link">Work</a></li>
     <li><a href="/experience" class="nav-link">Experience</a></li>
     <li><a href="/education" class="nav-link">Education</a></li>
     <li><a href="/photography" class="nav-link">Photography</a></li>
@@ -209,7 +213,7 @@
         <article class="ledger-row">
           <div class="ledger-when">2026</div>
           <div>
-            <h3 class="ledger-title">Driving growth at CIRQL, from research to roadmap</h3>
+            <h3 class="ledger-title"><a href="/work#cirql">Driving growth at CIRQL, from research to roadmap</a></h3>
             <p class="ledger-org">Product Management &amp; Strategy Associate, CIRQL</p>
           </div>
           <span class="tag tag-amber ledger-tag">Strategy</span>
@@ -218,7 +222,7 @@
         <article class="ledger-row">
           <div class="ledger-when">2026</div>
           <div>
-            <h3 class="ledger-title">V&amp;A Living Wage campaign taken to City Hall</h3>
+            <h3 class="ledger-title"><a href="/work#living-wage">V&amp;A Living Wage campaign taken to City Hall</a></h3>
             <p class="ledger-org">Civil Society Organising Intern, Citizens UK (TELCO)</p>
           </div>
           <span class="tag tag-plum ledger-tag">Policy</span>
@@ -227,7 +231,7 @@
         <article class="ledger-row">
           <div class="ledger-when">2025 – now</div>
           <div>
-            <h3 class="ledger-title">Earning media for first aid and volunteer recruitment</h3>
+            <h3 class="ledger-title"><a href="/work#st-john">Earning media for first aid and volunteer recruitment</a></h3>
             <p class="ledger-org">Regional Comms &amp; PR Officer, St John Ambulance</p>
           </div>
           <span class="tag tag-teal ledger-tag">Comms</span>
@@ -236,13 +240,14 @@
         <article class="ledger-row">
           <div class="ledger-when">2025 – 2026</div>
           <div>
-            <h3 class="ledger-title">Coal market intelligence for an Indian infrastructure firm</h3>
+            <h3 class="ledger-title"><a href="/work#varaha">Coal market intelligence for an Indian infrastructure firm</a></h3>
             <p class="ledger-org">Strategy Associate, Varaha Infra Limited</p>
           </div>
           <span class="tag tag-amber ledger-tag">Strategy</span>
           <div class="ledger-outcome">Executive reporting<small>decision-ready briefings</small></div>
         </article>
       </div>
+      <p class="ledger-more"><a href="/work" class="btn btn-ghost">Read the case studies</a></p>
     </div>
   </section>
 
