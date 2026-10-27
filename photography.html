@@ -47,6 +47,20 @@
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
   .photo:hover img, .photo:focus-visible img { transform: scale(1.03); }
   .photo:focus-visible { outline-offset: -3px; }
+  .photo-cap {
+    position: absolute; left: 10px; bottom: 10px; max-width: calc(100% - 20px);
+    padding: 6px 10px; border-radius: 6px;
+    background: rgba(13,11,10,.74); color: #F0EBE3;
+    font-size: var(--t-xs); line-height: 1.35; text-align: left;
+    opacity: 0; transform: translateY(4px);
+    transition: opacity .2s, transform .2s; pointer-events: none;
+  }
+  .photo:hover .photo-cap, .photo:focus-visible .photo-cap { opacity: 1; transform: none; }
+  .lb-cap {
+    position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%);
+    max-width: min(70vw, 60ch); text-align: center;
+    font-size: var(--t-sm); line-height: 1.4; color: rgba(240,235,227,.85);
+  }
 
   /* Lightbox */
   .lightbox {
@@ -58,7 +72,7 @@
   .lightbox.open { display: flex; animation: lb-in .2s ease-out; }
   @keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
   .lightbox img {
-    max-width: 100%; max-height: calc(100vh - 112px);
+    max-width: 100%; max-height: calc(100vh - 160px);
     border-radius: 8px;
     box-shadow: 0 40px 100px rgba(0,0,0,.8);
   }
@@ -103,6 +117,7 @@
     .lb-prev { left: 8px; top: auto; bottom: 12px; transform: none; }
     .lb-next { right: 8px; top: auto; bottom: 12px; transform: none; }
     .lb-count { left: 20px; top: 32px; }
+    .lb-cap { bottom: 72px; max-width: calc(100vw - 32px); }
   }
 </style>
 </head>
@@ -159,6 +174,7 @@
   <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 5l10 10M15 5 5 15"/></svg></button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l-6 6 6 6"/></svg></button>
   <img id="lbImg" alt="">
+  <p class="lb-cap" id="lbCap"></p>
   <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><svg viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4l6 6-6 6"/></svg></button>
 </div>
 
@@ -213,7 +229,7 @@ function render(list) {
     btn.type = 'button';
     btn.setAttribute('aria-label', p.alt + ', photo ' + (i + 1) + ' of ' + list.length);
     var big = i % 6 === 0;
-    btn.innerHTML = '<img loading="' + (i < 6 ? 'eager' : 'lazy') + '" src="photos/thumbs/' + p.file + '" alt="' + p.alt + '" width="' + (big ? 900 : 420) + '" height="' + (big ? 600 : 280) + '">';
+    btn.innerHTML = '<img loading="' + (i < 6 ? 'eager' : 'lazy') + '" src="photos/thumbs/' + p.file + '" alt="' + p.alt + '" width="' + (big ? 900 : 420) + '" height="' + (big ? 600 : 280) + '"><span class="photo-cap" aria-hidden="true">' + p.alt + '</span>';
     btn.addEventListener('click', function () { openLightbox(i); });
     gallery.appendChild(btn);
   });
@@ -234,19 +250,26 @@ function openLightbox(i) {
   lb.classList.add('open');
   lb.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  setInert(true);
   document.getElementById('lbClose').focus();
 }
 function showLb() {
   var p = photos[lbIndex];
   lbImg.src = 'photos/web/' + p.file;
   lbImg.alt = p.alt;
+  document.getElementById('lbCap').textContent = p.alt;
   lbCount.textContent = (lbIndex + 1) + ' / ' + photos.length;
 }
 function closeLb() {
   lb.classList.remove('open');
   lb.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  setInert(false);
   if (triggerEl) triggerEl.focus();
+}
+/* Keep keyboard and screen-reader focus inside the viewer while it is open */
+function setInert(on) {
+  ['main', '.nav', 'footer'].forEach(function (s) { var el = document.querySelector(s); if (el) el.inert = on; });
 }
 function step(d) { lbIndex = (lbIndex + d + photos.length) % photos.length; showLb(); }
 

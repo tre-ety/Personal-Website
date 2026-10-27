@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experience — Jio Miguel Ong</title>
+<title>Experience — Jio Miguel Ong, Product Owner in London</title>
 <meta name="description" content="Full professional experience of Jio Miguel Ong: product ownership, strategy, communications, community organising, open-source research and hospitality leadership.">
 <meta name="theme-color" content="#FBFBFA">
 <meta property="og:title" content="Experience — Jio Miguel Ong">
@@ -21,6 +21,19 @@
   .skills-label { font-size: var(--t-sm); font-weight: 700; color: var(--ink); margin: 22px 0 10px; }
   .skills-label:first-child { margin-top: 24px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  /* Printable: the page doubles as a CV */
+  @media print {
+    .nav, .rail, footer, .skip-link { display: none !important; }
+    body { background: #fff; color: #000; }
+    .page-head { padding-top: 0; padding-bottom: 16px; }
+    .page-head h1 { font-size: 32pt; }
+    .rail-layout { display: block; padding-bottom: 0; }
+    .group { break-inside: auto; margin-bottom: 24px; }
+    .entry { break-inside: avoid; padding: 14px 0; }
+    .entry-bullets li, .entry-org, .entry-when, .chip, .tag { color: #000; }
+    .chip { border-color: #999; background: none; }
+  }
 </style>
 </head>
 <body>

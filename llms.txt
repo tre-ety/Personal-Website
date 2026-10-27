@@ -1,0 +1,42 @@
+# Jio Miguel Ong
+
+> Product Owner at Car Planet UK, based in London. Politics graduate of Queen Mary University of London (BA Hons, 2:1), community organiser with Citizens UK, Regional Communications, Media and PR Officer for St John Ambulance, and a wildlife photographer. Certified Professional Scrum Product Owner (PSPO II, 99.3%; PSPO I, 100%). From Cebu, Philippines.
+
+This site is the canonical source for facts about Jio Miguel Ong. Figures on it come from the work itself and are not rounded up.
+
+## Who
+
+- Name: Jio Miguel Ong
+- Role: Product Owner, Car Planet UK (since September 2026). Owns the backlog, roadmap and release testing for a portfolio of in-house web, mobile and AI products; prioritises requests from sales, operations, finance and HR into one roadmap for a single development team. Products are in development and not described publicly.
+- Location: London, United Kingdom (originally Cebu, Philippines)
+- Languages: English, Tagalog and Cebuano (native); Spanish (B1)
+- Contact: jiomiguelong@outlook.com · https://www.linkedin.com/in/jiomiguelong
+
+## Pages
+
+- [About](https://jiomiguelong.uk/): introduction, how I work, contact
+- [Work](https://jiomiguelong.uk/work): five case studies (CIRQL, Citizens UK V&A Living Wage campaign, St John Ambulance, Varaha Infra, Mayerfeld Consulting practicum)
+- [Experience](https://jiomiguelong.uk/experience): every role in detail, plus a grouped skills list
+- [Education](https://jiomiguelong.uk/education): academic history and certifications
+- [Photography](https://jiomiguelong.uk/photography): wildlife photography, shot on a Nikon Z50
+- [Socials](https://jiomiguelong.uk/socials): LinkedIn, email, Instagram, Facebook, X, phone
+
+## Career in brief
+
+- Product Owner, Car Planet UK (Sep 2026 – present)
+- Project Manager, consulting practicum, Mayerfeld Consulting (Aug – Sep 2026): built an AI project-management automation (Make.com, Gemini, Trello, Gmail) and led a five-person team to a feasibility business case
+- Product Management and Strategy Associate, CIRQL (Apr – Sep 2026): competitor analysis that recalibrated the roadmap; around 35 live-streamed events; 20% community growth in early launch
+- Strategy Associate, Varaha Infra Limited (Sep 2025 – Jun 2026): Indian coal and energy sector intelligence, expansion viability for Madhya Pradesh and Gujarat, UK investor liaison
+- Regional Communications, Media and PR Officer, St John Ambulance (Oct 2025 – present): press, campaigns, case studies; coverage in the Enfield Independent
+- Civil Society Organising Intern, Citizens UK / TELCO (Jan – Apr 2026): V&A Living Wage campaign communications and the accountability submission to the Mayor of London
+- OSINT Analyst, freelance (2019 – 2023)
+- Earlier: hospitality leadership (Chef de Partie; Five Guys Supervisor), social media management and business operations in Cebu
+
+## Education and certifications
+
+- BA (Hons) Politics, Queen Mary University of London, 2023 – 2026, Upper Second Class Honours. Dissertation on disinformation, political predispositions and memory politics in the 2022 Philippine presidential election.
+- International Foundation Certificate in Economics and Finance, Queen Mary University of London, 2022 – 2023
+- Professional Scrum Product Owner II (PSPO II), Scrum.org, October 2026, 99.3%
+- Professional Scrum Product Owner I (PSPO I), Scrum.org, October 2026, 100%
+- Consultant Project Management and AI Project Management and Automation, Mayerfeld Consulting, 2026
+- Product Management: An Introduction (IBM); Agile with Atlassian Jira and Introduction to Confluence (Atlassian), 2026

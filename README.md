@@ -34,8 +34,11 @@ and no frameworks.
 ├── socials.html
 ├── shared.css          # shared tokens, nav, footer, rail, timeline, reset
 ├── shared.js           # mobile menu and on-page rail highlighting
+├── 404.html            # served by GitHub Pages for unknown addresses
 ├── favicon.ico         # kept at root for the browser default fallback
 ├── og-image.png        # link-preview image used by every page
+├── sitemap.xml
+├── robots.txt
 ├── CNAME
 ├── assets/
 │   ├── favicon.svg
