@@ -97,6 +97,12 @@
   .ledger-outcome { font-size: var(--t-sm); font-weight: 600; color: var(--ink); padding-top: 3px; }
   .ledger-outcome small { display: block; font-weight: 400; color: var(--muted); font-size: var(--t-xs); margin-top: 2px; }
 
+  /* ── HOW I WORK ── */
+  .how-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 56px; }
+  .how { padding-top: 18px; border-top: 1px solid var(--line-2); }
+  .how h3 { font-size: var(--t-lg); margin-bottom: 10px; }
+  .how p { font-size: var(--t-md); line-height: 1.65; color: var(--ink-2); max-width: 46ch; }
+
   /* ── CONTACT ── */
   .contact { padding-block: 96px 112px; }
   .contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: end; }
@@ -122,6 +128,7 @@
     .hv-main { grid-column: 1 / -1; grid-row: auto; }
     .hv-main img { aspect-ratio: 3 / 2; }
     .section { padding: 64px 0; }
+    .how-grid { grid-template-columns: 1fr; gap: 28px; }
     .contact { padding-block: 72px 80px; }
     .ledger-row { grid-template-columns: 1fr; row-gap: 6px; padding: 20px 0; }
     .ledger-tag, .ledger-outcome { grid-column: 1; }
@@ -175,7 +182,8 @@
           <div><dt>Role</dt><dd>Product Owner, Car Planet UK</dd></div>
           <div><dt>Based</dt><dd>London, United Kingdom</dd></div>
           <div><dt>From</dt><dd>Cebu, Philippines</dd></div>
-          <div><dt>Studies</dt><dd>BA (Hons) Politics, QMUL</dd></div>
+          <div><dt>Degree</dt><dd>BA (Hons) Politics, 2:1, Queen Mary University of London</dd></div>
+          <div><dt>Certified</dt><dd>Scrum.org PSPO II (99.3%) and PSPO I (100%)</dd></div>
           <div><dt>Languages</dt><dd>English, Tagalog, Cebuano, Spanish</dd></div>
         </dl>
         <div class="glance-tags">
@@ -248,6 +256,30 @@
         </article>
       </div>
       <p class="ledger-more"><a href="/work" class="btn btn-ghost">Read the case studies</a></p>
+    </div>
+  </section>
+
+  <section id="how" class="section" aria-label="How I work">
+    <div class="shell">
+      <h2 class="section-title">How I work</h2>
+      <div class="how-grid">
+        <div class="how">
+          <h3>Write it down before building it</h3>
+          <p>Every story I hand over carries a user story, Given/When/Then acceptance criteria, what is out of scope, and the teams it depends on. Big pieces get split into sub-tasks the developers can actually estimate.</p>
+        </div>
+        <div class="how">
+          <h3>Verify before describing</h3>
+          <p>Before a ticket says what the product does today, I check the product's own data. Guessing at current behaviour is how bugs get written into requirements.</p>
+        </div>
+        <div class="how">
+          <h3>Design first, then build</h3>
+          <p>A redesign starts as a canvas the team can review, and the decisions get captured as a shared design language, so the next module is consistent with the last without anyone re-deciding.</p>
+        </div>
+        <div class="how">
+          <h3>AI for speed, people for judgement</h3>
+          <p>I use AI to compress research, drafting and code reading, and keep a human check on everything it touches: manual verification on the dissertation, review for audience fit on campaign material, and legal and data-protection sign-off before any customer data is used.</p>
+        </div>
+      </div>
     </div>
   </section>
 
