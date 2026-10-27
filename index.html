@@ -31,7 +31,14 @@
 <link rel="stylesheet" href="shared.css">
 <style>
   /* ── HERO (centred, visual beneath) ── */
-  .hero { padding-block: calc(var(--nav-h) + 80px) 88px; text-align: center; }
+  .hero { padding-block: calc(var(--nav-h) + 80px) 88px; text-align: center; position: relative; }
+  /* A field of drifting specks behind the hero, full-bleed; the body clips the horizontal overflow */
+  .hero-field {
+    position: absolute; top: 0; left: 50%; width: 100vw; height: 100%; /* a replaced element ignores bottom:0 when height is auto */
+    transform: translateX(-50%);
+    pointer-events: none; z-index: 0;
+  }
+  .hero > :not(.hero-field) { position: relative; z-index: 1; }
   .nameplate {
     font-size: clamp(44px, 8.5vw, 96px);
     max-width: 14ch;
@@ -66,7 +73,7 @@
   .hv-cap a:hover { border-color: var(--ink); }
 
   /* One orchestrated entrance */
-  .hero > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero > :not(.hero-field) { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
   .hero > :nth-child(2) { animation-delay: .1s; }
   .hero > :nth-child(3) { animation-delay: .18s; }
   .hero > :nth-child(4) { animation-delay: .3s; }
@@ -405,6 +412,53 @@
         promote(turn % picks.length); turn++;
       }, 7000);
     }
+  }
+
+  /* Drifting specks behind the hero, in the brand colours. Drawn once and left still when motion is reduced. */
+  var hero = document.querySelector('.hero');
+  if (hero && window.requestAnimationFrame) {
+    var cv = document.createElement('canvas');
+    cv.className = 'hero-field'; cv.setAttribute('aria-hidden', 'true');
+    hero.appendChild(cv);
+    var ctx = cv.getContext('2d'), dots = [], W = 0, H = 0;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var inks = ['#EDB183', '#1E555C', '#D4636E', '#0D0B0A'];
+
+    function spawn(anywhere) {
+      return {
+        x: Math.random() * W, y: anywhere ? Math.random() * H : H + 12,
+        len: 3 + Math.random() * 7, a: Math.random() * Math.PI,
+        vy: 0.12 + Math.random() * 0.3, vx: (Math.random() - 0.5) * 0.1, va: (Math.random() - 0.5) * 0.004,
+        c: inks[Math.random() < 0.5 ? 0 : Math.floor(Math.random() * inks.length)],
+        o: 0.3 + Math.random() * 0.4
+      };
+    }
+    function size() {
+      W = cv.clientWidth; H = cv.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      dots = []; for (var n = Math.round(W * H / 9000), i = 0; i < n; i++) dots.push(spawn(true));
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H); ctx.lineCap = 'round'; ctx.lineWidth = 2;
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i], dx = Math.cos(d.a) * d.len / 2, dy = Math.sin(d.a) * d.len / 2;
+        ctx.strokeStyle = d.c; ctx.globalAlpha = d.o;
+        ctx.beginPath(); ctx.moveTo(d.x - dx, d.y - dy); ctx.lineTo(d.x + dx, d.y + dy); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+    }
+    function tick() {
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i]; d.y -= d.vy; d.x += d.vx; d.a += d.va;
+        if (d.y < -12) dots[i] = spawn(false);
+      }
+      draw(); requestAnimationFrame(tick);
+    }
+    size(); draw();
+    window.addEventListener('resize', function () {
+      if (cv.clientWidth !== W || Math.abs(cv.clientHeight - H) > 80) { size(); draw(); }
+    });
+    if (!reduce) requestAnimationFrame(tick);
   }
 
   /* Stagger the two lists in as they arrive. Only rows below the fold are ever hidden, so nothing visible is gated on this. */
