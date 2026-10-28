@@ -6,8 +6,10 @@ photos/*.JPG
 photos/*.jpg
 photos/*.jpeg
 
-# Local design-tool config
+# Local design-tool config, and the working notes for Claude (kept private, off the website)
 .impeccable/
+DESIGN.md
+CLAUDE.md
 
 # OS and sync noise
 Thumbs.db

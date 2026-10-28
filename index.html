@@ -30,7 +30,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
   /* ── HERO: typed name, a speck field that swirls round the pointer, and a photo reel beneath ── */
   .hero { padding-block: calc(var(--nav-h) + 80px) 64px; text-align: center; position: relative; }
@@ -52,27 +51,16 @@
     color: var(--ink); padding: .04em .3em; border-radius: 8px;
     -webkit-box-decoration-break: clone; box-decoration-break: clone;
     background: linear-gradient(var(--amber-soft), var(--amber-soft)) left center / 0% 100% no-repeat;
-    animation: mark .6s 1.3s cubic-bezier(.2,.7,.2,1) forwards;
+    animation: mark .6s .5s cubic-bezier(.2,.7,.2,1) forwards;
   }
   @keyframes mark { to { background-size: 100% 100%; } }
   .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 56px; }
-  .hero > .hero-lede, .hero > .hero-cta, .hero > .reel { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
-  .hero > .hero-lede { animation-delay: .9s; }
-  .hero > .hero-cta { animation-delay: 1.05s; }
-  .hero > .reel { animation-delay: 1.2s; }
+  .hero > .nameplate, .hero > .hero-lede, .hero > .hero-cta, .hero > .reel { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero > .hero-lede { animation-delay: .1s; }
+  .hero > .hero-cta { animation-delay: .18s; }
+  .hero > .reel { animation-delay: .28s; }
   @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-  /* Typed text: the full text stays in the page for screen readers; the visible copy is revealed letter by letter */
-  .tw .w { white-space: nowrap; }
-  .tw .ch { opacity: 0; }
-  .tw .ch.on { opacity: 1; }
-  .caret {
-    display: inline-block; width: .07em; height: .82em; margin: 0 -.11em 0 .04em; vertical-align: -.04em;
-    border-radius: 3px; background: linear-gradient(var(--teal), var(--amber) 55%, var(--plum));
-  }
-  .caret.done { animation: blink 1s steps(1) 3, caret-out .4s 3s forwards; }
-  @keyframes blink { 50% { opacity: 0; } }
-  @keyframes caret-out { to { opacity: 0; } }
 
   /* Photo reel: a dark card that crossfades and slowly zooms, with a pause control */
   .reel {
@@ -138,7 +126,7 @@
   @keyframes mq { to { transform: translateX(-50%); } }
 
   /* ── STATEMENT, typed when it scrolls into view ── */
-  .statement { padding-block: 88px 72px; }
+  .statement { padding-block: 104px; }
   .statement p {
     font-size: clamp(28px, 3.7vw, 48px); font-weight: 600; line-height: 1.16; letter-spacing: -.022em;
     max-width: 24ch; text-wrap: balance;
@@ -268,7 +256,7 @@
     .reel-cap { flex-basis: 100%; }
     .mq-item { height: 42px; }
     .mq-toggle { display: none; }
-    .statement { padding-block: 64px 40px; }
+    .statement { padding-block: 72px; }
     .sc-item { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
     .sc-text { position: static; padding: 0; }
     .showcase.js .sc-text { opacity: 1; }
@@ -307,7 +295,7 @@
 <main id="main">
 
   <section class="hero shell" aria-label="Introduction">
-    <h1 class="display nameplate" data-type="65">Jio Miguel Ong</h1>
+    <h1 class="display nameplate">Jio Miguel Ong</h1>
     <p class="hero-lede"><span class="hi">Product Owner at Car Planet UK.</span> Politics graduate and communications officer, from Cebu and based in London.</p>
     <div class="hero-cta">
       <a href="#work" class="btn btn-ghost">Selected work</a>
@@ -368,8 +356,8 @@
     </button>
   </section>
 
-  <section class="statement shell" aria-label="In short">
-    <p data-type="20">I turn research into roadmaps, write requirements a developer can test, and keep a human check on everything AI touches.</p>
+  <section class="statement plate-ink" aria-label="In short">
+    <div class="shell"><p>I turn research into roadmaps, write requirements a developer can test, and keep a human check on everything AI touches.</p></div>
   </section>
 
   <section id="work" class="showcase shell" aria-label="Selected work">
@@ -596,46 +584,6 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var IO = 'IntersectionObserver' in window;
 
-  /* Typed text. The full sentence stays in the page for screen readers; the visible copy is
-     split into letters that appear one at a time behind a moving caret. */
-  function prepType(el) {
-    var text = el.textContent.trim();
-    var sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = text;
-    var vis = document.createElement('span'); vis.className = 'tw'; vis.setAttribute('aria-hidden', 'true');
-    text.split(/(\s+)/).forEach(function (part) {
-      if (!part) return;
-      if (/^\s+$/.test(part)) { vis.appendChild(document.createTextNode(' ')); return; }
-      var w = document.createElement('span'); w.className = 'w';
-      for (var i = 0; i < part.length; i++) { var c = document.createElement('span'); c.className = 'ch'; c.textContent = part[i]; w.appendChild(c); }
-      vis.appendChild(w);
-    });
-    el.textContent = ''; el.appendChild(sr); el.appendChild(vis);
-    var chars = vis.querySelectorAll('.ch');
-    return function start(speed) {
-      var caret = document.createElement('span'), i = 0;
-      caret.className = 'caret'; caret.setAttribute('aria-hidden', 'true');
-      chars[0].parentNode.insertBefore(caret, chars[0]);
-      (function step() {
-        if (i >= chars.length) { caret.classList.add('done'); return; }
-        chars[i].classList.add('on');
-        chars[i].parentNode.insertBefore(caret, chars[i].nextSibling);
-        i++; setTimeout(step, speed);
-      })();
-    };
-  }
-  if (!reduce) {
-    [].forEach.call(document.querySelectorAll('[data-type]'), function (el) {
-      var speed = +el.dataset.type || 40, isName = el.classList.contains('nameplate');
-      /* text already on screen at load (other than the name) is left alone rather than blanked */
-      if (!isName && (!IO || el.getBoundingClientRect().top < window.innerHeight)) return;
-      var start = prepType(el); /* letters are prepared now, hidden but still read by screen readers */
-      if (isName) { setTimeout(function () { start(speed); }, 250); return; }
-      var io = new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting) { io.disconnect(); start(speed); }
-      }, { threshold: 0.6 });
-      io.observe(el);
-    });
-  }
 
   /* Speck field: small dashes in the brand colours drift upward; near the pointer they gather into a
      slowly turning ring and take on colour, like iron filings round a magnet. Still when motion is reduced. */

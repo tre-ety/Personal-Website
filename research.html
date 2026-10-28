@@ -21,7 +21,7 @@
 </script>
 <style>
   .page-head h1 { max-width: 16ch; }
-  .paper { padding-bottom: 120px; }
+  .paper h2 { scroll-margin-top: calc(var(--nav-h) + 32px); }
   .paper > * { max-width: 72ch; }
   .paper-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
   .paper h2 { font-size: var(--t-xl); margin: 44px 0 12px; }
@@ -99,10 +99,26 @@
 
   <header class="page-head shell">
     <h1 class="display">Why disinformation worked in 2022.</h1>
-    <p class="lede">My BA (Hons) Politics dissertation at Queen Mary University of London: how disinformation, voter predispositions and contested historical memory converged to shape voter perceptions in the 2022 Philippine presidential election.</p>
+    <p class="lede">My BA (Hons) Politics dissertation at Queen Mary University of London: <span class="hi">how disinformation, voter predispositions and contested historical memory converged</span> to shape voter perceptions in the 2022 Philippine presidential election.</p>
   </header>
 
-  <article class="shell paper">
+  <div class="shell rail-layout">
+    <aside class="rail" aria-label="Sections">
+      <div class="rail-title">On this page</div>
+      <nav class="rail-nav">
+        <a href="#question" class="rail-link">The question</a>
+        <a href="#abstract" class="rail-link">Abstract</a>
+        <a href="#numbers" class="rail-link">In numbers</a>
+        <a href="#model" class="rail-link">The convergence model</a>
+        <a href="#findings" class="rail-link">What it found</a>
+        <a href="#method" class="rail-link">Method</a>
+        <a href="#structure" class="rail-link">Structure</a>
+        <a href="#how-written" class="rail-link">How it was written</a>
+        <a href="#cite" class="rail-link">Cite this</a>
+      </nav>
+    </aside>
+
+  <article class="paper">
     <div class="paper-meta">
       <span class="chip chip-teal">Dissertation, 2026</span>
       <span class="chip">Queen Mary University of London</span>
@@ -111,17 +127,17 @@
       <span class="chip">Qualitative single-case study</span>
     </div>
 
-    <h2>The question</h2>
+    <h2 id="question">The question</h2>
     <p class="question">How did social media disinformation interact with existing political attitudes and historical narratives to shape voter perceptions during the 2022 Philippine presidential election?</p>
 
-    <h2>Abstract</h2>
+    <h2 id="abstract">Abstract</h2>
     <div class="abstract">
       <p>This dissertation examines how disinformation, voter predispositions, and contested historical memory interacted to shape voter perceptions during the 2022 Philippine presidential election, in which Ferdinand Marcos Jr. won with over 31 million votes and 59 per cent of the vote share, returning the Marcos family to the presidency three decades after the EDSA People Power Revolution. Existing scholarship has tended to treat digital disinformation, structural political factors, and memory politics as connected but insufficiently integrated processes, leaving open the question of how these dimensions worked together to produce the electoral outcome.</p>
       <p>To address this gap, the dissertation constructs an original analytical framework, termed the convergence model, drawing on three theoretical pillars: narrative competition over interpretive authority, networked disinformation as a professionalised production system, and the populist logic of equivalence applied to memory politics. The model is operationalised through a qualitative single-case study design, employing thematic discourse analysis of social media content from Facebook, YouTube, and TikTok during the January to May 2022 campaign period. A two-layer coding scheme captures both narrative type (authoritarian nostalgia, conspiracy, strongman leadership, democratic disillusionment) and affective strategy. The analysis is triangulated against secondary quantitative evidence from Kasuya et al. (2024), Mendoza et al. (2025), and Dulay et al. (2023).</p>
       <p>The dissertation argues that disinformation functioned not as an autonomous persuasive force but as a conditional catalyst, becoming politically consequential where it aligned with prior political commitments and contested historical memory. The experimental finding that one-shot exposure could not increase Marcos support is reinterpreted as confirming this logic. The findings contribute to comparative debates on democratic resilience and digital autocratisation, demonstrating that disinformation's electoral influence depends on structural and mnemonic conditions rather than on the inherent persuasiveness of false claims.</p>
     </div>
 
-    <h2>In numbers</h2>
+    <h2 id="numbers">In numbers</h2>
     <div class="facts">
       <div><strong data-count="31" data-suffix="m+">31m+</strong><span>votes for Ferdinand Marcos Jr. in May 2022</span></div>
       <div><strong data-count="59" data-suffix="%">59%</strong><span>of the vote, returning the Marcos family to the presidency</span></div>
@@ -129,7 +145,7 @@
       <div><strong data-count="5" data-suffix=" months">5 months</strong><span>of campaign content, January to May 2022</span></div>
     </div>
 
-    <h2>The convergence model</h2>
+    <h2 id="model">The convergence model</h2>
     <p>The model's claim is that voter perceptions in 2022 were a product of three processes working together, not of any one in isolation. It rests on three theoretical pillars.</p>
     <div class="pillars">
       <div class="pillar"><strong>Narrative competition</strong><p>Campaigns compete for interpretive authority: whose account of the past and present counts as common sense.</p></div>
@@ -137,7 +153,7 @@
       <div class="pillar"><strong>Memory politics</strong><p>The populist logic of equivalence applied to collective memory, unifying diverse grievances into one coherent demand.</p></div>
     </div>
 
-    <h2>What it found</h2>
+    <h2 id="findings">What it found</h2>
     <ul>
       <li>Disinformation operated as a <strong>conditional catalyst</strong>. It did not manufacture attitudes from nothing, nor merely reflect preferences that would have existed anyway; it drew its force from alignment with prior political commitments and contested historical memory.</li>
       <li>The two positions in the literature, that disinformation was decisive and that structural forces made it secondary, are <strong>interacting explanations, not competing ones</strong>. Disinformation activated and intensified predispositions and gave them political form through platformed memory politics; predispositions set the conditions under which particular narratives became credible, socially validated and actionable.</li>
@@ -145,10 +161,10 @@
       <li>The case is consistent with <strong>digital autocratisation</strong> as described by Arugay and Mendoza (2024): the erosion of democratic norms through the normalisation of illiberal narratives inside democratic elections, most dangerous where post-authoritarian settlements remain contested.</li>
     </ul>
 
-    <h2>Method</h2>
+    <h2 id="method">Method</h2>
     <p>A qualitative single-case study using thematic discourse analysis of Facebook, YouTube and TikTok content from the January to May 2022 campaign period. Each item was coded on two layers: narrative type (authoritarian nostalgia, conspiracy, strongman leadership, democratic disillusionment) and affective strategy. The discourse analysis was triangulated against secondary quantitative evidence from Kasuya et al. (2024), Mendoza et al. (2025) and Dulay et al. (2023), and the model was evaluated against the structural and institutional explanations in the existing literature.</p>
 
-    <h2>Structure</h2>
+    <h2 id="structure">Structure</h2>
     <ol class="toc">
       <li><span>Introduction</span><span>1</span></li>
       <li><span>1. Literature review: disinformation and digital politics; voter predispositions and perception formation; the Philippines and memory politics; identifying the gap</span><span>5</span></li>
@@ -159,10 +175,10 @@
       <li><span>Bibliography</span><span>42</span></li>
     </ol>
 
-    <h2>How it was written</h2>
+    <h2 id="how-written">How it was written</h2>
     <p>I used AI tools to triage and summarise the research literature across every chapter and to stress-test the convergence model against counter-arguments. That compressed the early research and ideas stage by roughly 40 per cent. Every source, quotation and figure was verified manually, and the argument, coding and analysis are my own.</p>
 
-    <h2>Cite this</h2>
+    <h2 id="cite">Cite this</h2>
     <div class="cite">
       <p>Ong, J.M. (2026) <em>Disinformation, Political Predispositions, and Memory Politics: Explaining Voter Perceptions in the 2022 Philippine Presidential Election</em>. BA (Hons) dissertation. Queen Mary University of London. Available at: https://jiomiguelong.uk/research</p>
       <button type="button" class="copy-btn" data-copy="Ong, J.M. (2026) Disinformation, Political Predispositions, and Memory Politics: Explaining Voter Perceptions in the 2022 Philippine Presidential Election. BA (Hons) dissertation. Queen Mary University of London. Available at: https://jiomiguelong.uk/research" aria-label="Copy the citation"><svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg><span>Copy citation</span></button>
@@ -174,11 +190,14 @@
     </div>
     <p class="paper-note">The PDF is the submitted dissertation with the university coversheet removed. If you work on Philippine politics, disinformation or memory politics and want to talk about the model, <a href="mailto:jiomiguelong@outlook.com">email me</a>.</p>
   </article>
+  </div>
 
-  <section class="cta-band shell" aria-label="Get in touch">
-    <h2 class="display">Working on disinformation or Philippine politics?</h2>
-    <p>I am glad to talk about the convergence model, the method or the sources.</p>
-    <div class="cta-row"><a href="mailto:jiomiguelong@outlook.com" class="btn btn-amber">Email me</a><a href="/assets/dissertation.pdf" class="btn btn-ghost">Read the full text</a></div>
+  <section class="cta-band plate-ink" aria-label="Get in touch">
+    <div class="shell">
+      <h2 class="display">Working on disinformation or Philippine politics?</h2>
+      <p>I am glad to talk about the convergence model, the method or the sources.</p>
+      <div class="cta-row"><a href="mailto:jiomiguelong@outlook.com" class="btn btn-amber">Email me</a><a href="/assets/dissertation.pdf" class="btn btn-ghost">Read the full text</a></div>
+    </div>
   </section>
 
 </main>

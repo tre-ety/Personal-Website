@@ -198,6 +198,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   --panel: rgba(13,11,10,.07); --panel-2: rgba(13,11,10,.12);
   --amber-ink: #0D0B0A;
 }
+/* Ink plate: the one dark section per page (Sanity's contrast). Children inherit light-on-dark tokens. */
+.plate-ink {
+  background: #0D0B0A; color: #F0EBE3;
+  --ink: #F0EBE3; --ink-2: rgba(240,235,227,.86); --muted: rgba(240,235,227,.72); --dim: rgba(240,235,227,.62);
+  --line: rgba(240,235,227,.12); --line-2: rgba(240,235,227,.22); --line-strong: rgba(240,235,227,.42);
+  --panel: rgba(240,235,227,.06); --panel-2: rgba(240,235,227,.1);
+  --amber-ink: var(--amber); --plum-ink: #F0A3AB; --teal-text: #9FD3DA; --amber-soft: rgba(237,177,131,.22);
+}
+.plate-ink ::selection { background: var(--amber); color: #0D0B0A; }
+.plate-ink :focus-visible { outline-color: var(--amber); }
+.plate-ink .btn-ghost:hover { border-color: #F0EBE3; }
 .plate-amber ::selection { background: #0D0B0A; color: var(--amber); }
 .plate-amber :focus-visible { outline-color: #0D0B0A; }
 .plate-amber .btn-amber { background: #0D0B0A; color: var(--amber); }
@@ -282,8 +293,15 @@ footer {
   font-size: var(--t-xs); color: var(--dim);
 }
 
-/* === CLOSING CALL TO ACTION (one per main page, before the footer) === */
-.cta-band { padding-block: 104px 112px; text-align: center; border-top: 1px solid var(--line); }
+/* === HIGHLIGHT: one key phrase per page intro, marked like a highlighter pen (Notion) === */
+.hi {
+  color: var(--ink); background: var(--amber-soft);
+  padding: .02em .25em; border-radius: 6px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
+/* === CLOSING CALL TO ACTION (one per main page, before the footer; full-bleed on an ink plate) === */
+.cta-band { padding-block: 104px 112px; text-align: center; }
 .cta-band h2 { font-size: clamp(36px, 5.2vw, 64px); margin-bottom: 16px; }
 .cta-band p { font-size: var(--t-lg); line-height: 1.5; color: var(--ink-2); max-width: 44ch; margin: 0 auto 28px; text-wrap: balance; }
 .cta-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
