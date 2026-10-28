@@ -1,13 +1,13 @@
 # Jio Miguel Ong
 
-> Product Owner at Car Planet UK, based in London. Politics graduate of Queen Mary University of London (BA Hons, 2:1), community organiser with Citizens UK, Regional Communications, Media and PR Officer for St John Ambulance, and a wildlife photographer. Certified Professional Scrum Product Owner (PSPO II, 99.3%; PSPO I, 100%). From Cebu, Philippines.
+> Product Owner at Car Planet UK, based in London. Politics graduate of Queen Mary University of London (BA Hons, 2:1), former Civil Society Organising Intern with Citizens UK, Regional Communications, Media and PR Officer for St John Ambulance, and a wildlife photographer. Certified Professional Scrum Product Owner (PSPO II, 99.3%; PSPO I, 100%). From Cebu, Philippines.
 
 This site is the canonical source for facts about Jio Miguel Ong. Figures on it come from the work itself and are not rounded up.
 
 ## Who
 
 - Name: Jio Miguel Ong
-- Role: Product Owner, Car Planet UK (since September 2026). Owns the backlog, roadmap and release testing for a portfolio of in-house web, mobile and AI products; prioritises requests from sales, operations, finance and HR into one roadmap for a single development team. Products are in development and not described publicly.
+- Role: Product Owner, Car Planet UK (since September 2026). Owns the backlog, roadmap and release testing for a portfolio of in-house web, mobile and AI products; prioritises requests from sales, operations, finance and HR into one roadmap for a single development team. Product details are confidential and not described publicly.
 - Location: London, United Kingdom (originally Cebu, Philippines)
 - Languages: English, Tagalog and Cebuano (native); Spanish (B1)
 - Contact: jiomiguelong@outlook.com · https://www.linkedin.com/in/jiomiguelong
