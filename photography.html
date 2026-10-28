@@ -44,6 +44,7 @@
   .gallery { grid-auto-flow: dense; }
   .photo:nth-child(6n+1) { grid-column: span 2; grid-row: span 2; }
   .photo:nth-child(12n+7) { grid-column: 2 / span 2; }
+  .gallery.is-filtered .photo { grid-column: auto; grid-row: auto; } /* filtered sets are an even grid */
   .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
   .photo:hover img, .photo:focus-visible img { transform: scale(1.03); }
   .photo:focus-visible { outline-offset: -3px; }
@@ -160,6 +161,7 @@
   </header>
 
   <div class="shell">
+    <div class="filters" data-filter-target="#gallery" data-tag-labels="birds=Birds;mammals=Mammals;insects=Insects;other=Everything else" role="group" aria-label="Filter photos" hidden></div>
     <section class="gallery" id="gallery" aria-label="Photo gallery"></section>
     <section id="emptyState" hidden>
       <div class="empty-state">
@@ -168,6 +170,12 @@
       </div>
     </section>
   </div>
+
+  <section class="cta-band shell" aria-label="Get in touch">
+    <h2 class="display">More on Instagram.</h2>
+    <p>I share photography and day-to-day life on Instagram.</p>
+    <div class="cta-row"><a href="https://www.instagram.com/gorjiouss/" target="_blank" rel="noopener" class="btn btn-amber">Follow @gorjiouss</a><a href="/socials" class="btn btn-ghost">All my channels</a></div>
+  </section>
 
 </main>
 
@@ -181,47 +189,72 @@
 </div>
 
 <footer>
-  <div class="shell foot">
-    <span>© 2026 Jio Miguel Ong, London</span>
-    <div class="foot-links">
-      <a href="/now">Now</a>
+  <nav class="shell foot-cols" aria-label="Footer">
+    <div class="fc-brand">
+      <a href="/" class="fc-mark"><img src="/assets/favicon.svg" alt="" width="34" height="34">Jio Miguel Ong</a>
+      <p>Product Owner in London, from Cebu. Product, strategy, organising and communications.</p>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">Work</p>
+      <a href="/work">Case studies</a>
+      <a href="/writing">Writing</a>
+      <a href="/research">Research</a>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">Background</p>
+      <a href="/experience">Experience</a>
+      <a href="/education">Education</a>
       <a href="/timeline">Timeline</a>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">More</p>
+      <a href="/photography">Photography</a>
+      <a href="/now">Now</a>
       <a href="/uses">Uses</a>
       <a href="/colophon">Colophon</a>
-      <a href="#main">Back to top</a>
     </div>
+    <div class="fc-col">
+      <p class="fc-title">Elsewhere</p>
+      <a href="mailto:jiomiguelong@outlook.com">Email</a>
+      <a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/socials">All channels</a>
+    </div>
+  </nav>
+  <div class="shell foot">
+    <span>© 2026 Jio Miguel Ong, London</span>
+    <a href="#main">Back to top</a>
   </div>
 </footer>
 
 <script>
 var photos = [
-  {file:"dsc_0437.jpg",alt:"Black cat"},
-  {file:"dsc_0597.jpg",alt:"Greylag goose"},
-  {file:"dsc_0633.jpg",alt:"Mirror reflection of a Nikon Z50 held in both hands"},
-  {file:"dsc_0652.jpg",alt:"Honeybee"},
-  {file:"dsc_0661.jpg",alt:"Coot chicks on a floating reed nest, with an adult coot swimming nearby"},
-  {file:"dsc_0677.jpg",alt:"Dark-coated deer looking at the camera from beneath a wooden fence"},
-  {file:"dsc_0699.jpg",alt:"Pink camellia flower resting on a glossy leaf"},
-  {file:"dsc_0736.jpg",alt:"Pair of mallards among bluebells beside a lake"},
-  {file:"dsc_0990.jpg",alt:"Greylag goose resting on a lakeside path, another swimming behind"},
-  {file:"dsc_0993.jpg",alt:"Greylag goose resting on a lakeside path, facing the camera"},
-  {file:"dsc_1004.jpg",alt:"Giraffe"},
-  {file:"dsc_1015.jpg",alt:"Giraffe peering around a wall in its indoor enclosure"},
-  {file:"dsc_1030.jpg",alt:"Warthog"},
-  {file:"dsc_1031.jpg",alt:"Warthog"},
-  {file:"dsc_1039.jpg",alt:"Warthog"},
-  {file:"dsc_1044.jpg",alt:"Okapi glimpsed through the mesh of its enclosure"},
-  {file:"dsc_1075.jpg",alt:"Flying fox"},
-  {file:"dsc_1079.jpg",alt:"Red-footed tortoise"},
-  {file:"dsc_1102.jpg",alt:"Mist drifting through branches inside a tropical glasshouse"},
-  {file:"dsc_1194.jpg",alt:"Owl butterfly"},
-  {file:"dsc_1207.jpg",alt:"Butterfly with folded wings resting on a backlit leaf"},
-  {file:"dsc_1234.jpg",alt:"Squirrel monkey"},
-  {file:"dsc_1239.jpg",alt:"Squirrel monkey"},
-  {file:"dsc_1262.jpg",alt:"Blue-grey pigeon with a red eye, half-hidden among large leaves"},
-  {file:"dsc_1286.jpg",alt:"Trogon"},
-  {file:"dsc_1421.jpg",alt:"Llama"},
-  {file:"dsc_1445.jpg",alt:"Alpaca"}
+  {file:"dsc_0437.jpg",alt:"Black cat",tag:"mammals"},
+  {file:"dsc_0597.jpg",alt:"Greylag goose",tag:"birds"},
+  {file:"dsc_0633.jpg",alt:"Mirror reflection of a Nikon Z50 held in both hands",tag:"other"},
+  {file:"dsc_0652.jpg",alt:"Honeybee",tag:"insects"},
+  {file:"dsc_0661.jpg",alt:"Coot chicks on a floating reed nest, with an adult coot swimming nearby",tag:"birds"},
+  {file:"dsc_0677.jpg",alt:"Dark-coated deer looking at the camera from beneath a wooden fence",tag:"mammals"},
+  {file:"dsc_0699.jpg",alt:"Pink camellia flower resting on a glossy leaf",tag:"other"},
+  {file:"dsc_0736.jpg",alt:"Pair of mallards among bluebells beside a lake",tag:"birds"},
+  {file:"dsc_0990.jpg",alt:"Greylag goose resting on a lakeside path, another swimming behind",tag:"birds"},
+  {file:"dsc_0993.jpg",alt:"Greylag goose resting on a lakeside path, facing the camera",tag:"birds"},
+  {file:"dsc_1004.jpg",alt:"Giraffe",tag:"mammals"},
+  {file:"dsc_1015.jpg",alt:"Giraffe peering around a wall in its indoor enclosure",tag:"mammals"},
+  {file:"dsc_1030.jpg",alt:"Warthog",tag:"mammals"},
+  {file:"dsc_1031.jpg",alt:"Warthog",tag:"mammals"},
+  {file:"dsc_1039.jpg",alt:"Warthog",tag:"mammals"},
+  {file:"dsc_1044.jpg",alt:"Okapi glimpsed through the mesh of its enclosure",tag:"mammals"},
+  {file:"dsc_1075.jpg",alt:"Flying fox",tag:"mammals"},
+  {file:"dsc_1079.jpg",alt:"Red-footed tortoise",tag:"other"},
+  {file:"dsc_1102.jpg",alt:"Mist drifting through branches inside a tropical glasshouse",tag:"other"},
+  {file:"dsc_1194.jpg",alt:"Owl butterfly",tag:"insects"},
+  {file:"dsc_1207.jpg",alt:"Butterfly with folded wings resting on a backlit leaf",tag:"insects"},
+  {file:"dsc_1234.jpg",alt:"Squirrel monkey",tag:"mammals"},
+  {file:"dsc_1239.jpg",alt:"Squirrel monkey",tag:"mammals"},
+  {file:"dsc_1262.jpg",alt:"Blue-grey pigeon with a red eye, half-hidden among large leaves",tag:"birds"},
+  {file:"dsc_1286.jpg",alt:"Trogon",tag:"birds"},
+  {file:"dsc_1421.jpg",alt:"Llama",tag:"mammals"},
+  {file:"dsc_1445.jpg",alt:"Alpaca",tag:"mammals"}
 ];
 
 var gallery = document.getElementById('gallery');
@@ -232,6 +265,7 @@ function render(list) {
   list.forEach(function (p, i) {
     var btn = document.createElement('button');
     btn.className = 'photo';
+    btn.dataset.tags = p.tag;
     btn.type = 'button';
     btn.setAttribute('aria-label', p.alt + ', photo ' + (i + 1) + ' of ' + list.length);
     var big = i % 6 === 0;
@@ -259,12 +293,16 @@ function openLightbox(i) {
   setInert(true);
   document.getElementById('lbClose').focus();
 }
+/* The viewer steps through only the photos the current filter shows */
+function visible() {
+  return [].slice.call(gallery.children).map(function (b, i) { return b.hidden ? -1 : i; }).filter(function (i) { return i > -1; });
+}
 function showLb() {
-  var p = photos[lbIndex];
+  var p = photos[lbIndex], vis = visible();
   lbImg.src = 'photos/web/' + p.file;
   lbImg.alt = p.alt;
   document.getElementById('lbCap').textContent = p.alt;
-  lbCount.textContent = (lbIndex + 1) + ' / ' + photos.length;
+  lbCount.textContent = (vis.indexOf(lbIndex) + 1) + ' / ' + vis.length;
 }
 function closeLb() {
   lb.classList.remove('open');
@@ -277,7 +315,7 @@ function closeLb() {
 function setInert(on) {
   ['main', '.nav', 'footer'].forEach(function (s) { var el = document.querySelector(s); if (el) el.inert = on; });
 }
-function step(d) { lbIndex = (lbIndex + d + photos.length) % photos.length; showLb(); }
+function step(d) { var vis = visible(), pos = vis.indexOf(lbIndex); lbIndex = vis[(pos + d + vis.length) % vis.length]; showLb(); }
 
 document.getElementById('lbClose').addEventListener('click', closeLb);
 document.getElementById('lbNext').addEventListener('click', function (e) { e.stopPropagation(); step(1); });

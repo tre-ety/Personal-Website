@@ -21,9 +21,17 @@
   (function () { var h = location.hash.slice(1); if (/^[a-z0-9-]+$/.test(h)) location.replace('/writing/' + h); })();
 </script>
 <style>
-  .posts { padding-bottom: 120px; }
-  .post-card { max-width: 760px; padding: 28px 0; border-bottom: 1px solid var(--line); }
-  .post-card:first-child { border-top: 1px solid var(--line-2); }
+  /* Cards in a grid; the newest spans the full width until a filter is chosen */
+  .posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding-bottom: 96px; }
+  .post-card {
+    position: relative; display: flex; flex-direction: column;
+    padding: 26px 26px 24px; border: 1px solid var(--line); border-radius: var(--radius-panel); background: var(--bg);
+    transition: border-color .18s, transform .18s;
+  }
+  .post-card:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .post-card:first-child { grid-column: 1 / -1; background: var(--panel); }
+  .posts.is-filtered .post-card { grid-column: auto; background: var(--bg); }
+  .post-card h2 a::before { content: ''; position: absolute; inset: 0; border-radius: inherit; } /* the whole card is the link */
   .pc-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: var(--t-sm); color: var(--muted); margin-bottom: 8px; }
   .post-card h2 { font-size: var(--t-xl); line-height: 1.2; max-width: 30ch; }
   .post-card h2 a { border-bottom: 1px solid transparent; transition: border-color .18s; }
@@ -32,7 +40,7 @@
   .post-card h2 a:hover { border-color: currentColor; }
   .post-card p { margin-top: 8px; font-size: var(--t-md); line-height: 1.6; color: var(--ink-2); max-width: 62ch; }
   .writing-note { margin-top: 28px; font-size: var(--t-sm); color: var(--muted); line-height: 1.6; max-width: 62ch; }
-  @media (max-width: 820px) { .posts { padding-bottom: 80px; } .post-card { padding: 22px 0; } }
+  @media (max-width: 820px) { .posts { grid-template-columns: 1fr; padding-bottom: 64px; } .post-card { padding: 22px 20px; } }
 </style>
 </head>
 <body>
@@ -65,24 +73,27 @@
     <p class="lede">Short pieces on product ownership, organising, research and working with AI. Each one comes from the work itself, with the numbers left in. A new piece appears every week.</p>
   </header>
 
-  <section class="shell posts" aria-label="All writing">
+  <div class="shell">
+    <div class="filters" data-filter-target="#post-list" data-tag-labels="product=Product;strategy=Strategy;organising=Organising;research=Research;communications=Communications;ai=Working with AI" role="group" aria-label="Filter by topic" hidden></div>
+  </div>
+  <section class="shell posts" id="post-list" aria-label="All writing">
     <!-- POSTS:START -->
-    <article class="post-card">
+    <article class="post-card" data-tags="product">
       <div class="pc-meta"><time datetime="2026-10-28">28 October 2026</time><span class="tag tag-amber">Product</span><span>1 min read</span></div>
       <h2><a href="/writing/ticket-memory">The ticket is the product&#x27;s memory</a></h2>
       <p>Why every story I hand over carries a user story, Given/When/Then criteria, what is out of scope and who it depends on.</p>
     </article>
-    <article class="post-card">
+    <article class="post-card" data-tags="organising">
       <div class="pc-meta"><time datetime="2026-10-28">28 October 2026</time><span class="tag tag-plum">Organising</span><span>1 min read</span></div>
       <h2><a href="/writing/organising">What organising taught me about product</a></h2>
       <p>Three habits from community organising with Citizens UK that carried straight into product work: the ask, turnout and accountability.</p>
     </article>
-    <article class="post-card">
+    <article class="post-card" data-tags="product">
       <div class="pc-meta"><time datetime="2026-10-28">28 October 2026</time><span class="tag tag-amber">Product</span><span>1 min read</span></div>
       <h2><a href="/writing/check-the-data">Check the data before you describe the product</a></h2>
       <p>A requirement that guesses at today&#x27;s behaviour writes a bug into the product. Look at the data and the code first.</p>
     </article>
-    <article class="post-card">
+    <article class="post-card" data-tags="ai">
       <div class="pc-meta"><time datetime="2026-10-28">28 October 2026</time><span class="tag tag-teal">Working with AI</span><span>1 min read</span></div>
       <h2><a href="/writing/ai-judgement">AI for speed, people for judgement</a></h2>
       <p>What AI tools actually saved me, in numbers, and the human checks that made each of those savings worth having.</p>
@@ -90,18 +101,49 @@
     <!-- POSTS:END -->
   </section>
 
+  <section class="cta-band shell" aria-label="Get in touch">
+    <h2 class="display">Want to talk about a piece?</h2>
+    <p>Write to me about anything here, or about product ownership and organising in general.</p>
+    <div class="cta-row"><a href="mailto:jiomiguelong@outlook.com" class="btn btn-amber">Email me</a><a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a></div>
+  </section>
+
 </main>
 
 <footer>
-  <div class="shell foot">
-    <span>© 2026 Jio Miguel Ong, London</span>
-    <div class="foot-links">
-      <a href="/now">Now</a>
+  <nav class="shell foot-cols" aria-label="Footer">
+    <div class="fc-brand">
+      <a href="/" class="fc-mark"><img src="/assets/favicon.svg" alt="" width="34" height="34">Jio Miguel Ong</a>
+      <p>Product Owner in London, from Cebu. Product, strategy, organising and communications.</p>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">Work</p>
+      <a href="/work">Case studies</a>
+      <a href="/writing">Writing</a>
+      <a href="/research">Research</a>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">Background</p>
+      <a href="/experience">Experience</a>
+      <a href="/education">Education</a>
       <a href="/timeline">Timeline</a>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">More</p>
+      <a href="/photography">Photography</a>
+      <a href="/now">Now</a>
       <a href="/uses">Uses</a>
       <a href="/colophon">Colophon</a>
-      <a href="#main">Back to top</a>
     </div>
+    <div class="fc-col">
+      <p class="fc-title">Elsewhere</p>
+      <a href="mailto:jiomiguelong@outlook.com">Email</a>
+      <a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/socials">All channels</a>
+    </div>
+  </nav>
+  <div class="shell foot">
+    <span>© 2026 Jio Miguel Ong, London</span>
+    <a href="#main">Back to top</a>
   </div>
 </footer>
 

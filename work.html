@@ -28,16 +28,21 @@
   }
   .case h3 { font-size: var(--t-sm); font-weight: 700; color: var(--ink); margin: 24px 0 8px; }
   .case p, .case li { font-size: var(--t-md); line-height: 1.65; color: var(--ink-2); max-width: 68ch; }
-  .case ul { list-style: disc; padding-left: 20px; display: grid; gap: 8px; }
-  .case li::marker { color: var(--amber-ink); }
-  .outcomes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .outcome {
-    display: inline-flex; align-items: baseline; gap: 6px;
-    padding: 8px 12px; border-radius: var(--radius-chip);
-    background: var(--panel); border: 1px solid var(--line);
-    font-size: var(--t-sm); color: var(--muted);
+  /* Results: a coloured panel of figures, in the case's discipline colour */
+  .outcomes {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); gap: 22px 28px;
+    margin-top: 14px; padding: 28px 30px; border-radius: 20px;
+    background: var(--amber); color: #0D0B0A; max-width: 760px;
   }
-  .outcome strong { color: var(--ink); font-weight: 700; }
+  #living-wage .outcomes { background: var(--plum); }
+  #st-john .outcomes { background: var(--teal); color: #F0EBE3; }
+  .outcome { display: block; font-size: var(--t-sm); line-height: 1.45; }
+  .outcome strong {
+    display: block; margin-bottom: 6px;
+    font-size: clamp(26px, 2.8vw, 36px); font-weight: 800; line-height: 1.05; letter-spacing: -.03em;
+    font-variation-settings: "wdth" 84;
+  }
+  @media (max-width: 820px) { .outcomes { padding: 22px 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; } }
   .work-note { margin-top: 32px; font-size: var(--t-sm); color: var(--muted); line-height: 1.6; max-width: 68ch; }
   .work-note a { color: var(--ink); border-bottom: 1px solid var(--line-2); transition: border-color .18s; }
   .work-note a:hover { border-color: var(--ink); }
@@ -98,7 +103,7 @@
         <h3>The brief</h3>
         <p>CIRQL is an early-stage event-discovery and campus-social app, built in Flutter, Dart and Firebase, heading towards pre-revenue investment rounds. The team needed to know where it stood against established platforms, what users were struggling with, and where to spend the months ahead.</p>
         <h3>What I did</h3>
-        <ul>
+        <ul class="checks">
           <li>Ran an AI-assisted competitor and market-positioning analysis across 10+ comparable platforms, including Eventbrite, Meetup and Ticketmaster UK, completing the framework and analysis stage in one to two hours against a full day of manual research.</li>
           <li>Surfaced differentiation gaps that recalibrated the 2026 roadmap: the user-acquisition push moved from April to August so the team could prioritise application development and UI/UX work first.</li>
           <li>Synthesised user feedback on interface issues, from inconsistent iconography and low-resolution branding to unintuitive go-live and event-selection flows, into a prioritised design and development programme spanning the interface, landing page and QR-code journey.</li>
@@ -108,10 +113,10 @@
         </ul>
         <h3>What came of it</h3>
         <div class="outcomes">
-          <span class="outcome"><strong>20%</strong> community growth in the early launch phase</span>
-          <span class="outcome"><strong>50+</strong> users onboarded by direct networking</span>
-          <span class="outcome"><strong>10+</strong> event-organiser partnerships</span>
-          <span class="outcome"><strong>~50%</strong> less copy-production time at lower cost than a commercial tool</span>
+          <span class="outcome"><strong data-count="20" data-suffix="%">20%</strong> community growth in the early launch phase</span>
+          <span class="outcome"><strong data-count="50" data-suffix="+">50+</strong> users onboarded by direct networking</span>
+          <span class="outcome"><strong data-count="10" data-suffix="+">10+</strong> event-organiser partnerships</span>
+          <span class="outcome"><strong data-count="50" data-prefix="~" data-suffix="%">~50%</strong> less copy-production time, at lower cost than a commercial tool</span>
         </div>
       </article>
 
@@ -125,7 +130,7 @@
         <h3>The brief</h3>
         <p>Citizens UK organises across East London through an alliance of faith institutions, schools, universities, trade unions, councils and grassroots networks. The portfolio I supported spanned the Living Wage, Living Hours, temporary accommodation, ESOL provision, air quality and youth safety. The Living Wage campaign at the V&amp;A needed communications that would carry student voices into a formal accountability submission to the Mayor of London.</p>
         <h3>What I did</h3>
-        <ul>
+        <ul class="checks">
           <li>Designed and delivered the campaign communications end to end: scripted, filmed and edited student testimony and supported the formal accountability submission to the Mayor of London at Tower Hamlets Town Hall.</li>
           <li>Managed turnout strategy, delegate tracking and operational delivery for the TELCO Delegates Assembly, the National Delegates Assembly and the Issues Workshop, and chaired the Safety panel.</li>
           <li>Used AI tools to draft and restructure running orders and speech timings for 10+ campaign events, from nationwide asks to borough-level actions, and to convert 10+ pieces of policy and campaign material into public-facing posters and adverts, keeping manual review for audience fit.</li>
@@ -133,9 +138,9 @@
         </ul>
         <h3>What came of it</h3>
         <div class="outcomes">
-          <span class="outcome">Formal submission to the <strong>Mayor of London</strong></span>
-          <span class="outcome">Running orders for <strong>10+</strong> campaign events</span>
-          <span class="outcome"><strong>~25%</strong> faster materials production, with review kept in the loop</span>
+          <span class="outcome"><strong>Mayor of London</strong> received the formal accountability submission</span>
+          <span class="outcome"><strong data-count="10" data-suffix="+">10+</strong> campaign events with running orders drafted</span>
+          <span class="outcome"><strong data-count="25" data-prefix="~" data-suffix="%">~25%</strong> faster materials production, with review kept in the loop</span>
         </div>
       </article>
 
@@ -149,7 +154,7 @@
         <h3>The brief</h3>
         <p>St John Ambulance needed regional stories that would earn coverage for first aid, health emergencies and volunteer recruitment, told in a way that held to the charity's editorial governance and safeguarding standards.</p>
         <h3>What I did</h3>
-        <ul>
+        <ul class="checks">
           <li>Drafted and placed press releases and editorial content for regional and national outlets, responded to journalist enquiries and coordinated interviews.</li>
           <li>Planned and delivered regional public-relations campaigns across traditional and digital platforms.</li>
           <li>Gathered real-life case studies and produced multimedia material for broadcast, print and social channels, built around human-interest storytelling.</li>
@@ -157,8 +162,8 @@
         </ul>
         <h3>What came of it</h3>
         <div class="outcomes">
-          <span class="outcome">Published coverage in the <strong>Enfield Independent</strong> for National Volunteers' Week</span>
-          <span class="outcome">Regional campaigns running across <strong>print, broadcast and social</strong></span>
+          <span class="outcome"><strong>Enfield Independent</strong> published coverage for National Volunteers' Week</span>
+          <span class="outcome"><strong>Print, broadcast, social</strong> regional campaigns running across all three</span>
         </div>
       </article>
 
@@ -172,7 +177,7 @@
         <h3>The brief</h3>
         <p>Senior leadership needed a steady, structured view of the Indian coal and energy sector, from pricing and logistics to regulation, to inform forward planning, risk and capital allocation, plus a UK-based point of contact for investors.</p>
         <h3>What I did</h3>
-        <ul>
+        <ul class="checks">
           <li>Managed and interpreted commercial datasets in Excel spanning coal pricing, logistics costs and supply-chain volumes, turning raw figures into reporting that informed executive oversight and capital-allocation decisions.</li>
           <li>Built and ran a recurring AI-automated research workflow, using ChatGPT, Gemini and Claude, that tracked regulatory, pricing and supply-chain developments from September 2025 to June 2026 and consolidated them into structured reports.</li>
           <li>Assessed expansion viability into Madhya Pradesh and Gujarat and their principal industrial centres, weighing cost structures, supply-chain economics and state renewable-energy incentives such as electricity-duty exemptions, stamp-duty reimbursements and wheeling-charge waivers.</li>
@@ -180,8 +185,8 @@
         </ul>
         <h3>What came of it</h3>
         <div class="outcomes">
-          <span class="outcome"><strong>10 months</strong> of continuous sector reporting to leadership</span>
-          <span class="outcome">Two-state expansion assessment <strong>retained for future consideration</strong></span>
+          <span class="outcome"><strong data-count="10" data-suffix=" months">10 months</strong> of continuous sector reporting to leadership</span>
+          <span class="outcome"><strong>Two states</strong> assessed for expansion, with findings retained for future consideration</span>
         </div>
       </article>
 
@@ -195,7 +200,7 @@
         <h3>The brief</h3>
         <p>Two deliverables in four weeks: an AI-based project-management tool that met the practicum's requirement, and a founder-ready feasibility case for a proposed 2027 pilot of Formula Africa World, a pan-African youth leadership initiative combining two learning formats.</p>
         <h3>What I did</h3>
-        <ul>
+        <ul class="checks">
           <li>Architected and deployed an automation in Make.com connecting Gemini, Trello and Gmail via API: AI-generated meeting notes, such as those from Zoom and Google Meet, become task cards with due dates and labels, paired with automated status emails to the people responsible. Each API connection was configured and tested, and the workflow deployed via Network Solutions hosting.</li>
           <li>Led a five-person team through the full lifecycle from kick-off to final recommendation, authoring the project charter, goal statement, assumptions log, RACI matrix, team charter and milestone roadmap.</li>
           <li>Built the stakeholder register, engagement strategy and communication plan for investors, trainers and target communities, which shaped how the pilot was positioned to each audience.</li>
@@ -204,8 +209,8 @@
         </ul>
         <h3>What came of it</h3>
         <div class="outcomes">
-          <span class="outcome">Working automation <strong>deployed</strong>, meeting the practicum requirement</span>
-          <span class="outcome">Business case presented to support a <strong>go or no-go</strong> decision on the 2027 pilot</span>
+          <span class="outcome"><strong>Deployed</strong> a working automation, meeting the practicum requirement</span>
+          <span class="outcome"><strong>Go or no-go</strong> business case presented for the 2027 pilot</span>
           <span class="outcome"><strong>Five-person</strong> team led over four weeks</span>
         </div>
       </article>
@@ -215,18 +220,49 @@
     </section>
   </div>
 
+  <section class="cta-band shell" aria-label="Get in touch">
+    <h2 class="display">Working on something similar?</h2>
+    <p>I am open to conversations about product and strategy roles, campaigns and communications.</p>
+    <div class="cta-row"><a href="mailto:jiomiguelong@outlook.com" class="btn btn-amber">Email me</a><a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener" class="btn btn-ghost">Connect on LinkedIn</a></div>
+  </section>
+
 </main>
 
 <footer>
-  <div class="shell foot">
-    <span>© 2026 Jio Miguel Ong, London</span>
-    <div class="foot-links">
-      <a href="/now">Now</a>
+  <nav class="shell foot-cols" aria-label="Footer">
+    <div class="fc-brand">
+      <a href="/" class="fc-mark"><img src="/assets/favicon.svg" alt="" width="34" height="34">Jio Miguel Ong</a>
+      <p>Product Owner in London, from Cebu. Product, strategy, organising and communications.</p>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">Work</p>
+      <a href="/work">Case studies</a>
+      <a href="/writing">Writing</a>
+      <a href="/research">Research</a>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">Background</p>
+      <a href="/experience">Experience</a>
+      <a href="/education">Education</a>
       <a href="/timeline">Timeline</a>
+    </div>
+    <div class="fc-col">
+      <p class="fc-title">More</p>
+      <a href="/photography">Photography</a>
+      <a href="/now">Now</a>
       <a href="/uses">Uses</a>
       <a href="/colophon">Colophon</a>
-      <a href="#main">Back to top</a>
     </div>
+    <div class="fc-col">
+      <p class="fc-title">Elsewhere</p>
+      <a href="mailto:jiomiguelong@outlook.com">Email</a>
+      <a href="https://www.linkedin.com/in/jiomiguelong" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/socials">All channels</a>
+    </div>
+  </nav>
+  <div class="shell foot">
+    <span>© 2026 Jio Miguel Ong, London</span>
+    <a href="#main">Back to top</a>
   </div>
 </footer>
 
