@@ -20,6 +20,12 @@ This site is the canonical source for facts about Jio Miguel Ong. Figures on it 
 - [Education](https://jiomiguelong.uk/education): academic history and certifications
 - [Photography](https://jiomiguelong.uk/photography): wildlife photography, shot on a Nikon Z50
 - [Socials](https://jiomiguelong.uk/socials): LinkedIn, email, Instagram, Facebook, X, phone
+- [Writing](https://jiomiguelong.uk/writing): short pieces on product ownership, organising and working with AI
+- [Research](https://jiomiguelong.uk/research): the BA Politics dissertation (abstract, convergence model, findings) with the full text at https://jiomiguelong.uk/assets/dissertation.pdf
+- [Now](https://jiomiguelong.uk/now): what he is working on at the moment, dated
+- [Timeline](https://jiomiguelong.uk/timeline): every school, role and certification since 2010 on one line
+- [Uses](https://jiomiguelong.uk/uses): the toolkit and what each tool is for
+- [Colophon](https://jiomiguelong.uk/colophon): how the site is built; no analytics or tracking
 
 ## Career in brief
 

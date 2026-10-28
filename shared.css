@@ -275,6 +275,10 @@ footer {
 .foot a:hover { color: var(--ink); }
 
 /* === RESPONSIVE === */
+@media (max-width: 1080px) {
+  .nav-link { padding: 8px 9px; font-size: var(--t-xs); }
+  .nav-menu { gap: 0; }
+}
 @media (max-width: 1000px) {
   .rail-layout { grid-template-columns: 1fr; gap: 24px; }
   .rail { position: static; }

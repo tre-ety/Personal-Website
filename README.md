@@ -17,6 +17,12 @@ and no frameworks.
 | --- | --- | --- |
 | Home | `index.html` | Introduction and short personal story |
 | Work | `work.html` | Five case studies: the brief, what I did, what came of it |
+| Writing | `writing.html` | Short pieces on product ownership, organising and working with AI |
+| Research | `research.html` | The dissertation: abstract, convergence model, findings, full PDF |
+| Now | `now.html` | What I'm doing at the moment, dated |
+| Timeline | `timeline.html` | Every school, role and certification since 2010, filterable |
+| Uses | `uses.html` | The toolkit and what each tool is for |
+| Colophon | `colophon.html` | How the site is made |
 | Experience | `experience.html` | Full professional history, each role detailed |
 | Education | `education.html` | Academic history with modules and subjects |
 | Photography | `photography.html` | Wildlife photography gallery with a lightbox |
@@ -28,6 +34,12 @@ and no frameworks.
 .
 ├── index.html
 ├── work.html
+├── writing.html
+├── research.html
+├── now.html
+├── timeline.html
+├── uses.html
+├── colophon.html
 ├── experience.html
 ├── education.html
 ├── photography.html
@@ -42,7 +54,8 @@ and no frameworks.
 ├── CNAME
 ├── assets/
 │   ├── favicon.svg
-│   └── apple-touch-icon.png
+│   ├── apple-touch-icon.png
+│   └── dissertation.pdf   # the submitted dissertation, coversheet removed
 └── photos/
     ├── web/      # full-size images shown in the gallery lightbox
     └── thumbs/   # thumbnails shown in the gallery grid
