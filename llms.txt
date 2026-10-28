@@ -46,3 +46,10 @@ This site is the canonical source for facts about Jio Miguel Ong. Figures on it 
 - Professional Scrum Product Owner I (PSPO I), Scrum.org, October 2026, 100%
 - Consultant Project Management and AI Project Management and Automation, Mayerfeld Consulting, 2026
 - Product Management: An Introduction (IBM); Agile with Atlassian Jira and Introduction to Confluence (Atlassian), 2026
+
+## Writing
+
+- [The ticket is the product's memory](https://jiomiguelong.uk/writing/ticket-memory) (2026-10-28): Why every story I hand over carries a user story, Given/When/Then criteria, what is out of scope and who it depends on.
+- [What organising taught me about product](https://jiomiguelong.uk/writing/organising) (2026-10-28): Three habits from community organising with Citizens UK that carried straight into product work: the ask, turnout and accountability.
+- [Check the data before you describe the product](https://jiomiguelong.uk/writing/check-the-data) (2026-10-28): A requirement that guesses at today's behaviour writes a bug into the product. Look at the data and the code first.
+- [AI for speed, people for judgement](https://jiomiguelong.uk/writing/ai-judgement) (2026-10-28): What AI tools actually saved me, in numbers, and the human checks that made each of those savings worth having.

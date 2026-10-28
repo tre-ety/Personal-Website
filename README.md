@@ -17,7 +17,7 @@ and no frameworks.
 | --- | --- | --- |
 | Home | `index.html` | Introduction and short personal story |
 | Work | `work.html` | Five case studies: the brief, what I did, what came of it |
-| Writing | `writing.html` | Short pieces on product ownership, organising and working with AI |
+| Writing | `writing.html` | Index of posts; each post is its own page in `writing/`, published weekly by a scheduled task |
 | Research | `research.html` | The dissertation: abstract, convergence model, findings, full PDF |
 | Now | `now.html` | What I'm doing at the moment, dated |
 | Timeline | `timeline.html` | Every school, role and certification since 2010, filterable |
@@ -34,7 +34,8 @@ and no frameworks.
 .
 ├── index.html
 ├── work.html
-├── writing.html
+├── writing.html        # post index, generated between the POSTS markers
+├── writing/            # one page per post
 ├── research.html
 ├── now.html
 ├── timeline.html
