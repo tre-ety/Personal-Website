@@ -1,6 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Jio Miguel Ong">
-  <!-- A lowercase j whose dot is a lens ring: the j of Jio, the o of Ong, and the camera. -->
-  <rect width="64" height="64" rx="14" fill="#EDB183"/>
-  <circle cx="42" cy="16" r="6" fill="none" stroke="#0D0B0A" stroke-width="5"/>
-  <path d="M42 30V40A12 12 0 0 1 18 40V35" fill="none" stroke="#0D0B0A" stroke-width="10"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Jio Miguel Ong">
+  <!-- jm monogram: the j's stem rises into the m's first arch, a lens ring is its dot, and its bowl
+       hooks left below the m, all inside a ring. Mark units: strokes 10, rings 5, arches radius 11. -->
+  <rect width="100" height="100" rx="22" fill="#EDB183"/>
+  <g transform="translate(50 50) scale(.7)" fill="none" stroke="#0D0B0A" stroke-width="5">
+    <circle r="64.3"/>
+    <g transform="translate(-5.5 -14)">
+      <circle cy="-28.45" r="6"/>
+      <path d="M-28 34V44A14 14 0 0 0 0 44V0A11 11 0 0 1 22 0V20M22 0A11 11 0 0 1 44 0V20" stroke-width="10"/>
+    </g>
+  </g>
 </svg>

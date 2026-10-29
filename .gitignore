@@ -8,6 +8,7 @@ photos/*.jpeg
 
 # Local design-tool config, and the working notes for Claude (kept private, off the website)
 .impeccable/
+.claude/
 DESIGN.md
 CLAUDE.md
 HANDOVER.md
